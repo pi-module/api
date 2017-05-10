@@ -15,6 +15,7 @@ use Pi\Mvc\Controller\ActionController;
 use TelegramBot\Api\BotApi as TelegramBotApi;
 use TelegramBot\Api\Client as TelegramClient;
 use TelegramBot\Api\Exception as TelegramException;
+use TelegramBot\Api\Types\ReplyKeyboardMarkup as TelegramReplyKeyboardMarkup;
 
 //require_once '/var/www/html/local/pi/pi260/lib/vendor/telegram/autoload.php';
 
@@ -27,6 +28,7 @@ class TelegramController extends ActionController
 {
     public function indexAction()
     {
+        Pi::service('audit')->log('telegram', $_REQUEST);
         // Set result
         $result = array(
             'status' => 0,
@@ -44,19 +46,22 @@ class TelegramController extends ActionController
             $check = Pi::api('token', 'tools')->check($token, $module, 'api');
             if ($check['status'] == 1) {
 
+                $telegram = json_decode(file_get_contents('php://input'));
+                $message = $telegram["message"];
+                $chatId = $message["chat"]["id"];
 
+                Pi::service('audit')->log('telegram', $telegram);
+                Pi::service('audit')->log('telegram', $message);
+                Pi::service('audit')->log('telegram', $chatId);
 
                 try {
-                    $bot = new TelegramClient($config['telegram_api_key']);
-                    $bot->command('ping', function ($message) use ($bot) {
-                        $bot->sendMessage($message->getChat()->getId(), 'pong!');
-                    });
-                    $result = $bot->run();
+                    $bot = new TelegramBotApi($config['telegram_api_key']);
+                    $keyboard = new TelegramReplyKeyboardMarkup(array(array("one", "two", "three")), true);
+                    $bot->sendMessage($chatId, "Test", false, null, $keyboard);
                 } catch (TelegramException $e) {
-                    $result['message'] = $e->getMessage();
+                    $e->getMessage();
                 }
 
-                return $result;
             } else {
                 return $check;
             }
@@ -64,5 +69,4 @@ class TelegramController extends ActionController
             return $result;
         }
     }
-
 }
