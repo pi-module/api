@@ -17,6 +17,10 @@ return array(
             'name'      => 'active',
             'title'     => _t('Active'),
         ),
+        array(
+            'name'      => 'setting',
+            'title'     => _t('Setting'),
+        ),
     ),
     'item' => array(
         'active_telegram' => array(
@@ -29,7 +33,7 @@ return array(
         ),
         'active_contact' => array(
             'category'      => 'active',
-            'title'         => _a('Active telegram'),
+            'title'         => _a('Active contact'),
             'description'   => '',
             'edit'          => 'checkbox',
             'filter'        => 'number_int',
@@ -37,7 +41,7 @@ return array(
         ),
         'active_support' => array(
             'category'      => 'active',
-            'title'         => _a('Active telegram'),
+            'title'         => _a('Active support'),
             'description'   => '',
             'edit'          => 'checkbox',
             'filter'        => 'number_int',
@@ -45,11 +49,20 @@ return array(
         ),
         'active_news' => array(
             'category'      => 'active',
-            'title'         => _a('Active telegram'),
+            'title'         => _a('Active news'),
             'description'   => '',
             'edit'          => 'checkbox',
             'filter'        => 'number_int',
             'value'         => 1
+        ),
+
+
+        'telegram_api_key' => array(
+            'category' => 'setting',
+            'title' => _a('Telegram api key'),
+            'description' => '',
+            'edit' => 'text',
+            'filter' => 'string',
         ),
     ),
 );

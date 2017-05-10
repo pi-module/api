@@ -12,6 +12,12 @@ namespace Module\Apis\Controller\Front;
 use Pi;
 use Pi\Mvc\Controller\ActionController;
 
+use TelegramBot\Api\BotApi as TelegramBotApi;
+use TelegramBot\Api\Client as TelegramClient;
+use TelegramBot\Api\Exception as TelegramException;
+
+//require_once '/var/www/html/local/pi/pi260/lib/vendor/telegram/autoload.php';
+
 /**
  * Cron controller
  *
@@ -37,8 +43,19 @@ class TelegramController extends ActionController
             // Check token
             $check = Pi::api('token', 'tools')->check($token, $module, 'api');
             if ($check['status'] == 1) {
-                $result['status'] = 1;
-                $result['message'] = 'Its work !';
+
+
+
+                try {
+                    $bot = new TelegramClient($config['telegram_api_key']);
+                    $bot->command('ping', function ($message) use ($bot) {
+                        $bot->sendMessage($message->getChat()->getId(), 'pong!');
+                    });
+                    $result = $bot->run();
+                } catch (TelegramException $e) {
+                    $result['message'] = $e->getMessage();
+                }
+
                 return $result;
             } else {
                 return $check;
@@ -47,4 +64,5 @@ class TelegramController extends ActionController
             return $result;
         }
     }
+
 }
