@@ -39,6 +39,10 @@ class NewsController extends ActionController
                 // Check token
                 $check = Pi::api('token', 'tools')->check($token, $module, 'api');
                 if ($check['status'] == 1) {
+
+
+
+
                     $result['status'] = 1;
                     $result['message'] = 'Its work !';
                     return $result;

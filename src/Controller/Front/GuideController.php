@@ -17,7 +17,7 @@ use Pi\Mvc\Controller\ActionController;
  *
  * @author Hossein Azizabadi <azizabadi@faragostaresh.com>
  */
-class SupportController extends ActionController
+class GuideController extends ActionController
 {
     public function indexAction()
     {
@@ -32,10 +32,10 @@ class SupportController extends ActionController
         $module = $this->params('module');
         $token = $this->params('token');
         // Check module
-        if (Pi::service('module')->isActive('support')) {
+        if (Pi::service('module')->isActive('guide')) {
             // Check config
             $config = Pi::service('registry')->config->read($module);
-            if ($config['active_support']) {
+            if ($config['active_guide']) {
                 // Check token
                 $check = Pi::api('token', 'tools')->check($token, $module, 'api');
                 if ($check['status'] == 1) {
