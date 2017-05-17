@@ -23,9 +23,58 @@ return array(
         ),
     ),
     'item' => array(
-        'active_telegram' => array(
+        // Active
+        'active_user' => array(
             'category'      => 'active',
-            'title'         => _a('Active telegram'),
+            'title'         => _a('Active user'),
+            'description'   => '',
+            'edit'          => 'checkbox',
+            'filter'        => 'number_int',
+            'value'         => 1
+        ),
+        'active_page' => array(
+            'category'      => 'active',
+            'title'         => _a('Active page'),
+            'description'   => '',
+            'edit'          => 'checkbox',
+            'filter'        => 'number_int',
+            'value'         => 1
+        ),
+        'active_news' => array(
+            'category'      => 'active',
+            'title'         => _a('Active news'),
+            'description'   => '',
+            'edit'          => 'checkbox',
+            'filter'        => 'number_int',
+            'value'         => 1
+        ),
+        'active_event' => array(
+            'category'      => 'active',
+            'title'         => _a('Active event'),
+            'description'   => '',
+            'edit'          => 'checkbox',
+            'filter'        => 'number_int',
+            'value'         => 1
+        ),
+        'active_video' => array(
+            'category'      => 'active',
+            'title'         => _a('Active video'),
+            'description'   => '',
+            'edit'          => 'checkbox',
+            'filter'        => 'number_int',
+            'value'         => 1
+        ),
+        'active_shop' => array(
+            'category'      => 'active',
+            'title'         => _a('Active shop'),
+            'description'   => '',
+            'edit'          => 'checkbox',
+            'filter'        => 'number_int',
+            'value'         => 1
+        ),
+        'active_guide' => array(
+            'category'      => 'active',
+            'title'         => _a('Active guide'),
             'description'   => '',
             'edit'          => 'checkbox',
             'filter'        => 'number_int',
@@ -47,16 +96,15 @@ return array(
             'filter'        => 'number_int',
             'value'         => 1
         ),
-        'active_news' => array(
+        'active_telegram' => array(
             'category'      => 'active',
-            'title'         => _a('Active news'),
+            'title'         => _a('Active telegram'),
             'description'   => '',
             'edit'          => 'checkbox',
             'filter'        => 'number_int',
             'value'         => 1
         ),
-
-
+        // Setting
         'telegram_api_key' => array(
             'category' => 'setting',
             'title' => _a('Telegram api key'),
