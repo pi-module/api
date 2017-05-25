@@ -20,8 +20,6 @@ use TelegramBot\Api\Types\ReplyKeyboardMarkup as TelegramReplyKeyboardMarkup;
 //require_once '/var/www/html/local/pi/pi260/lib/vendor/telegram/autoload.php';
 
 /**
- * Cron controller
- *
  * @author Hossein Azizabadi <azizabadi@faragostaresh.com>
  */
 class TelegramController extends ActionController

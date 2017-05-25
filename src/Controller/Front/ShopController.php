@@ -13,8 +13,6 @@ use Pi;
 use Pi\Mvc\Controller\ActionController;
 
 /**
- * Cron controller
- *
  * @author Hossein Azizabadi <azizabadi@faragostaresh.com>
  */
 class ShopController extends ActionController
