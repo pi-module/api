@@ -301,7 +301,7 @@ class UserController extends ActionController
     public function doLogin($identity, $credential)
     {
         // Set return array
-        $result = array(
+        $return = array(
             'message' => '',
             'login' => 0,
             'identity' => '',
@@ -355,26 +355,26 @@ class UserController extends ActionController
                     'id', 'identity', 'name', 'email'
                 ));
                 // Set return array
-                $result['message'] = __('You have logged in successfully');
-                $result['login'] = 1;
-                $result['identity'] = $user['identity'];
-                $result['email'] = $user['email'];
-                $result['name'] = $user['name'];
-                $result['avatar'] = Pi::service('user')->avatar($user['id'], 'medium', false);
-                $result['uid'] = $user['id'];
-                $result['userid'] = $user['id'];
-                $result['sessionid'] = Pi::service('session')->getId();
-                $result['check'] = 1;
+                $return['message'] = __('You have logged in successfully');
+                $return['login'] = 1;
+                $return['identity'] = $user['identity'];
+                $return['email'] = $user['email'];
+                $return['name'] = $user['name'];
+                $return['avatar'] = Pi::service('user')->avatar($user['id'], 'medium', false);
+                $return['uid'] = $user['id'];
+                $return['userid'] = $user['id'];
+                $return['sessionid'] = Pi::service('session')->getId();
+                $return['check'] = 1;
             } else {
-                $result['error'] = 1;
-                $result['message'] = __('Bind error');
+                $return['error'] = 1;
+                $return['message'] = __('Bind error');
             }
         } else {
-            $result['error'] = 1;
-            $result['message'] = __('Authentication is not valid');
+            $return['error'] = 1;
+            $return['message'] = __('Authentication is not valid');
         }
 
-        return $result;
+        return $return;
     }
 
     protected function verifyResult(Result $result)
