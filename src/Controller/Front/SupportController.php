@@ -123,6 +123,7 @@ class SupportController extends ActionController
                         //
                         if ($id > 0) {
                             $result = Pi::api('ticket', 'support')->getTicket($id);
+                            $result['message'] = strip_tags($result['message']);
 
                             // Get list of replies
                             $tickets = array();
@@ -134,6 +135,7 @@ class SupportController extends ActionController
                             // Make list
                             foreach ($rowset as $row) {
                                 $singleTicket = Pi::api('ticket', 'support')->canonizeTicket($row);
+                                $singleTicket['message'] = strip_tags($singleTicket['message']);
                                 if ($uid == $row->uid) {
                                     $singleTicket['user_id'] = $user['id'];
                                     $singleTicket['user_name'] = $user['name'];
