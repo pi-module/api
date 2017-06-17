@@ -264,7 +264,7 @@ class UserController extends ActionController
                         // Find user
                         $uid = Pi::user()->getId();
                         $result = Pi::user()->get($uid, $fields);
-                        $result['avatar'] = Pi::service('avatar')->get($result['id'], 'large', false);
+                        $result['avatar'] = Pi::service('avatar')->get($result['id'], 'xxlarge', false);
                         $result['uid'] = $uid;
                         $result['check'] = 1;
                         $result['sessionid'] = Pi::service('session')->getId();
