@@ -15,7 +15,7 @@ return array(
     'meta' => array(
         'title'        => _a('APIs'),
         'description'  => _a('Api system of mobile apps and external service'),
-        'version'      => '0.0.6',
+        'version'      => '0.0.7',
         'license'      => 'New BSD',
         'logo'         => 'image/logo.png',
         'readme'       => 'docs/readme.txt',

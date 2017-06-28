@@ -30,6 +30,7 @@ class UserController extends ActionController
         // Get info from url
         $module = $this->params('module');
         $token = $this->params('token');
+        $order = $this->params('order');
         // Check module
         if (Pi::service('module')->isActive('user')) {
             // Check config
@@ -38,6 +39,9 @@ class UserController extends ActionController
                 // Check token
                 $check = Pi::api('token', 'tools')->check($token, $module, 'api');
                 if ($check['status'] == 1) {
+
+                    // Load language
+                    Pi::service('i18n')->load(array('module/user', 'default'));
 
                     // Get session id
                     $id = $this->params('id', '');
@@ -74,6 +78,23 @@ class UserController extends ActionController
                             'avatar' => Pi::service('user')->avatar($user['id'], 'large', false),
                             'sessionid' => Pi::service('session')->getId(),
                         );
+                        // Set order info
+                        if ($order == 1 && Pi::service('module')->isActive('order')) {
+                            // Load language
+                            Pi::service('i18n')->load(array('module/order', 'default'));
+
+                            $credit = Pi::api('credit', 'order')->getCredit();
+                            $invoices = Pi::api('invoice', 'order')->getInvoiceFromUser($user['id'], true);
+                            $score = Pi::api('invoice', 'order')->getInvoiceScore($user['id']);
+
+                            $result['credit_amount'] = $credit['amount'];
+                            $result['credit_amount_view'] = $credit['amount_view'];
+                            $result['invoice_count'] = count($invoices);
+                            $result['invoice_count_view'] = _number(count($invoices));
+                            $result['score_type'] = $score['type'];
+                            $result['score_amount'] = $score['amount'];
+                            $result['score_amount_view'] = Pi::api('api', 'order')->viewPrice($score['amount']);
+                        }
                     } else {
                         $result = array(
                             'check' => 0,
@@ -117,6 +138,9 @@ class UserController extends ActionController
                 // Check token
                 $check = Pi::api('token', 'tools')->check($token, $module, 'api');
                 if ($check['status'] == 1) {
+
+                    // Load language
+                    Pi::service('i18n')->load(array('module/user', 'default'));
 
                     if (Pi::service('user')->hasIdentity()) {
                         // Get user
@@ -192,6 +216,9 @@ class UserController extends ActionController
                 $check = Pi::api('token', 'tools')->check($token, $module, 'api');
                 if ($check['status'] == 1) {
 
+                    // Load language
+                    Pi::service('i18n')->load(array('module/user', 'default'));
+
                     // Get user id
                     $uid = Pi::user()->getId();
                     // Logout user actions
@@ -229,6 +256,7 @@ class UserController extends ActionController
         // Get info from url
         $module = $this->params('module');
         $token = $this->params('token');
+        $order = $this->params('order');
         // Check module
         if (Pi::service('module')->isActive('user')) {
             // Check config
@@ -237,6 +265,9 @@ class UserController extends ActionController
                 // Check token
                 $check = Pi::api('token', 'tools')->check($token, $module, 'api');
                 if ($check['status'] == 1) {
+
+                    // Load language
+                    Pi::service('i18n')->load(array('module/user', 'default'));
 
                     // Get session id
                     $id = $this->params('id', '');
@@ -271,6 +302,25 @@ class UserController extends ActionController
 
                         if (Pi::service('module')->isActive('support')) {
                             $result['support'] = Pi::api('ticket', 'support')->getCount($uid);
+                        }
+
+                        // Set order info
+                        if ($order == 1 && Pi::service('module')->isActive('order')) {
+                            // Load language
+                            Pi::service('i18n')->load(array('module/order', 'default'));
+
+                            $credit = Pi::api('credit', 'order')->getCredit();
+                            $invoices = Pi::api('invoice', 'order')->getInvoiceFromUser($uid, true);
+                            $score = Pi::api('invoice', 'order')->getInvoiceScore($uid);
+
+
+                            $result['credit_amount'] = $credit['amount'];
+                            $result['credit_amount_view'] = $credit['amount_view'];
+                            $result['invoice_count'] = count($invoices);
+                            $result['invoice_count_view'] = _number(count($invoices));
+                            $result['score_type'] = $score['type'];
+                            $result['score_amount'] = $score['amount'];
+                            $result['score_amount_view'] = Pi::api('api', 'order')->viewPrice($score['amount']);
                         }
                     } else {
                         $result = array(

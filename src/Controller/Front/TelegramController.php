@@ -39,7 +39,7 @@ class TelegramController extends ActionController
         $token = $this->params('token');
         // Check config
         $config = Pi::service('registry')->config->read($module);
-        if ($config['active_telegram']) {
+        if ($config['active_external']) {
             // Check token
             $check = Pi::api('token', 'tools')->check($token, $module, 'api');
             if ($check['status'] == 1) {

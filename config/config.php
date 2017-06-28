@@ -30,7 +30,7 @@ return array(
             'description'   => '',
             'edit'          => 'checkbox',
             'filter'        => 'number_int',
-            'value'         => 1
+            'value'         => 0
         ),
         'active_page' => array(
             'category'      => 'active',
@@ -38,7 +38,7 @@ return array(
             'description'   => '',
             'edit'          => 'checkbox',
             'filter'        => 'number_int',
-            'value'         => 1
+            'value'         => 0
         ),
         'active_news' => array(
             'category'      => 'active',
@@ -46,7 +46,7 @@ return array(
             'description'   => '',
             'edit'          => 'checkbox',
             'filter'        => 'number_int',
-            'value'         => 1
+            'value'         => 0
         ),
         'active_event' => array(
             'category'      => 'active',
@@ -54,7 +54,7 @@ return array(
             'description'   => '',
             'edit'          => 'checkbox',
             'filter'        => 'number_int',
-            'value'         => 1
+            'value'         => 0
         ),
         'active_video' => array(
             'category'      => 'active',
@@ -62,7 +62,7 @@ return array(
             'description'   => '',
             'edit'          => 'checkbox',
             'filter'        => 'number_int',
-            'value'         => 1
+            'value'         => 0
         ),
         'active_shop' => array(
             'category'      => 'active',
@@ -70,7 +70,7 @@ return array(
             'description'   => '',
             'edit'          => 'checkbox',
             'filter'        => 'number_int',
-            'value'         => 1
+            'value'         => 0
         ),
         'active_guide' => array(
             'category'      => 'active',
@@ -78,7 +78,7 @@ return array(
             'description'   => '',
             'edit'          => 'checkbox',
             'filter'        => 'number_int',
-            'value'         => 1
+            'value'         => 0
         ),
         'active_contact' => array(
             'category'      => 'active',
@@ -86,7 +86,7 @@ return array(
             'description'   => '',
             'edit'          => 'checkbox',
             'filter'        => 'number_int',
-            'value'         => 1
+            'value'         => 0
         ),
         'active_support' => array(
             'category'      => 'active',
@@ -94,15 +94,31 @@ return array(
             'description'   => '',
             'edit'          => 'checkbox',
             'filter'        => 'number_int',
-            'value'         => 1
+            'value'         => 0
         ),
-        'active_telegram' => array(
+        'active_order' => array(
             'category'      => 'active',
-            'title'         => _a('Active telegram'),
+            'title'         => _a('Active order'),
             'description'   => '',
             'edit'          => 'checkbox',
             'filter'        => 'number_int',
-            'value'         => 1
+            'value'         => 0
+        ),
+        'active_forms' => array(
+            'category'      => 'active',
+            'title'         => _a('Active forms'),
+            'description'   => '',
+            'edit'          => 'checkbox',
+            'filter'        => 'number_int',
+            'value'         => 0
+        ),
+        'active_external' => array(
+            'category'      => 'active',
+            'title'         => _a('Active external services / modules'),
+            'description'   => '',
+            'edit'          => 'checkbox',
+            'filter'        => 'number_int',
+            'value'         => 0
         ),
         // Setting
         'telegram_api_key' => array(
