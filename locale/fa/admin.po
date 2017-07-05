@@ -1,0 +1,88 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Pi apis module\n"
+"POT-Creation-Date: 2017-07-05 11:35+0430\n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: Pi\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.12\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: _a;_t\n"
+"X-Poedit-Basepath: ../..\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: config/config.php:18
+msgid "Active"
+msgstr "فعال"
+
+#: config/config.php:22
+msgid "Setting"
+msgstr "تنظیمات"
+
+#: config/config.php:29
+msgid "Active user"
+msgstr ""
+
+#: config/config.php:37
+msgid "Active page"
+msgstr ""
+
+#: config/config.php:45
+msgid "Active news"
+msgstr ""
+
+#: config/config.php:53
+msgid "Active event"
+msgstr ""
+
+#: config/config.php:61
+msgid "Active video"
+msgstr ""
+
+#: config/config.php:69
+msgid "Active shop"
+msgstr ""
+
+#: config/config.php:77
+msgid "Active guide"
+msgstr ""
+
+#: config/config.php:85
+msgid "Active contact"
+msgstr ""
+
+#: config/config.php:93
+msgid "Active support"
+msgstr ""
+
+#: config/config.php:101
+msgid "Active order"
+msgstr ""
+
+#: config/config.php:109
+msgid "Active forms"
+msgstr ""
+
+#: config/config.php:117
+msgid "Active external services / modules"
+msgstr ""
+
+#: config/config.php:126
+msgid "Telegram api key"
+msgstr ""
+
+#: config/module.php:16
+msgid "APIs"
+msgstr ""
+
+#: config/module.php:17
+msgid "Api system of mobile apps and external service"
+msgstr ""
+
+#: config/navigation.php:17 config/page.php:17 config/permission.php:17
+msgid "Api list"
+msgstr "فهرست APi ها"
