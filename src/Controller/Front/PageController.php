@@ -17,7 +17,7 @@ use Pi\Mvc\Controller\ActionController;
  */
 class PageController extends ActionController
 {
-    public function sendAction()
+    public function viewAction()
     {
         // Set result
         $result = array(
@@ -41,9 +41,21 @@ class PageController extends ActionController
 
 
 
+                    $id = $this->params('id');
+                    $row = Pi::model('page', 'page')->find($id);
+                    $content = Pi::service('markup')->compile(
+                        $row->content,
+                        'html'
+                    );
+                    $result['title'] = $row->title;
+                    $result['content'] = $content;
+
+
+
+
                     $result['status'] = 1;
                     $result['message'] = 'Its work !';
-                    return $result;
+                    return array($result);
                 } else {
                     return $check;
                 }

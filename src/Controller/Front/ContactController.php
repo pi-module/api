@@ -40,6 +40,9 @@ class ContactController extends ActionController
                 if ($check['status'] == 1) {
 
 
+                    // Load language
+                    Pi::service('i18n')->load(array('module/contact', 'default'));
+
                     // Check post
                     if ($this->request->isPost()) {
                         $data = $this->request->getPost();

@@ -44,6 +44,8 @@ class SupportController extends ActionController
 
 
 
+                    // Load language
+                    Pi::service('i18n')->load(array('module/support', 'default'));
 
                     $result = array(
                         'uid' => 0,
@@ -112,7 +114,8 @@ class SupportController extends ActionController
 
 
 
-
+                    // Load language
+                    Pi::service('i18n')->load(array('module/support', 'default'));
                     $result = array();
                     // Get id
                     $id = $this->params('id');
@@ -190,6 +193,10 @@ class SupportController extends ActionController
                 // Check token
                 $check = Pi::api('token', 'tools')->check($token, $module, 'api');
                 if ($check['status'] == 1) {
+
+
+                    // Load language
+                    Pi::service('i18n')->load(array('module/support', 'default'));
 
                     $result = array();
                     if ($this->request->isPost()) {
