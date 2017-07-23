@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Pi apis module\n"
-"POT-Creation-Date: 2017-07-05 11:35+0430\n"
+"POT-Creation-Date: 2017-07-23 13:15+0430\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: Pi\n"
@@ -28,50 +28,54 @@ msgid "Active user"
 msgstr ""
 
 #: config/config.php:37
-msgid "Active page"
+msgid "Active register"
 msgstr ""
 
 #: config/config.php:45
-msgid "Active news"
+msgid "Active page"
 msgstr ""
 
 #: config/config.php:53
-msgid "Active event"
+msgid "Active news"
 msgstr ""
 
 #: config/config.php:61
-msgid "Active video"
+msgid "Active event"
 msgstr ""
 
 #: config/config.php:69
-msgid "Active shop"
+msgid "Active video"
 msgstr ""
 
 #: config/config.php:77
-msgid "Active guide"
+msgid "Active shop"
 msgstr ""
 
 #: config/config.php:85
-msgid "Active contact"
+msgid "Active guide"
 msgstr ""
 
 #: config/config.php:93
-msgid "Active support"
+msgid "Active contact"
 msgstr ""
 
 #: config/config.php:101
-msgid "Active order"
+msgid "Active support"
 msgstr ""
 
 #: config/config.php:109
-msgid "Active forms"
+msgid "Active order"
 msgstr ""
 
 #: config/config.php:117
+msgid "Active forms"
+msgstr ""
+
+#: config/config.php:125
 msgid "Active external services / modules"
 msgstr ""
 
-#: config/config.php:126
+#: config/config.php:134
 msgid "Telegram api key"
 msgstr ""
 
