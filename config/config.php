@@ -32,6 +32,14 @@ return array(
             'filter'        => 'number_int',
             'value'         => 0
         ),
+        'active_register' => array(
+            'category'      => 'active',
+            'title'         => _a('Active register'),
+            'description'   => '',
+            'edit'          => 'checkbox',
+            'filter'        => 'number_int',
+            'value'         => 0
+        ),
         'active_page' => array(
             'category'      => 'active',
             'title'         => _a('Active page'),
