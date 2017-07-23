@@ -98,7 +98,7 @@ class RegisterController extends ActionController
                             Pi::service('event')->trigger('user_activate', $uid);
                             //
                             $result = array(
-                                'status' => 0,
+                                'status' => 1,
                                 'message' => __('Your account create and activate. please login to system'),
                             );
                             return $result;
