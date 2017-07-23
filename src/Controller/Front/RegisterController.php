@@ -55,7 +55,6 @@ class RegisterController extends ActionController
                         $value = _strip($value);
                         $values[$key] = $value;
                     }
-                    $result['v1'] = $values;
 
                     // Check mobile force set on register form
                     if (!isset($values['mobile']) || empty($values['mobile']) || !is_numeric($values['mobile'])) {
@@ -80,8 +79,6 @@ class RegisterController extends ActionController
                     // Set values
                     $values['last_modified'] = time();
                     $values['ip_register']   = Pi::user()->getIp();
-
-                    $result['v2'] = $values;
 
                     // Add user
                     $uid = Pi::api('user', 'user')->addUser($values);

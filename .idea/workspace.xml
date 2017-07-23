@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="737c4100-2f36-4ccb-98d8-7003c7fd382b" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Controller/Front/RegisterController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/config.php" afterPath="$PROJECT_DIR$/config/config.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/module.php" afterPath="$PROJECT_DIR$/config/module.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controller/Front/RegisterController.php" afterPath="$PROJECT_DIR$/src/Controller/Front/RegisterController.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -30,9 +28,11 @@
       <file leaf-file-name="RegisterController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Controller/Front/RegisterController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="108">
-              <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-              <folding />
+            <state relative-caret-position="378">
+              <caret line="81" column="0" lean-forward="true" selection-start-line="81" selection-start-column="0" selection-end-line="81" selection-end-column="0" />
+              <folding>
+                <element signature="e#304#311#0#PHP" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -345,7 +345,7 @@
       <workItem from="1499238210705" duration="3048000" />
       <workItem from="1499320574604" duration="33000" />
       <workItem from="1500789116223" duration="117000" />
-      <workItem from="1500799248319" duration="1000" />
+      <workItem from="1500799248319" duration="19000" />
     </task>
     <task id="LOCAL-00001" summary="Start work on api module">
       <created>1494412562343</created>
@@ -445,11 +445,18 @@
       <option name="project" value="LOCAL" />
       <updated>1499320580215</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Work on api">
+      <created>1500799253863</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1500799253863</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="11687000" />
+    <option name="totallyTimeSpent" value="11705000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1278" height="998" extended-state="4" />
@@ -897,9 +904,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/Front/RegisterController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="378">
+          <caret line="81" column="0" lean-forward="true" selection-start-line="81" selection-start-column="0" selection-end-line="81" selection-end-column="0" />
+          <folding>
+            <element signature="e#304#311#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
