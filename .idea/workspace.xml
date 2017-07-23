@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="737c4100-2f36-4ccb-98d8-7003c7fd382b" name="Default" comment="">
+    <list default="true" id="737c4100-2f36-4ccb-98d8-7003c7fd382b" name="Default" comment="Work on api">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controller/Front/RegisterController.php" afterPath="$PROJECT_DIR$/src/Controller/Front/RegisterController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/locale/fa/default.mo" afterPath="$PROJECT_DIR$/locale/fa/default.mo" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/locale/fa/default.po" afterPath="$PROJECT_DIR$/locale/fa/default.po" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -347,7 +348,7 @@
       <workItem from="1500789116223" duration="117000" />
       <workItem from="1500799248319" duration="1002000" />
       <workItem from="1500817242878" duration="43000" />
-      <workItem from="1500818432783" duration="1000" />
+      <workItem from="1500818432783" duration="141000" />
     </task>
     <task id="LOCAL-00001" summary="Start work on api module">
       <created>1494412562343</created>
@@ -475,11 +476,18 @@
       <option name="project" value="LOCAL" />
       <updated>1500799648794</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Work on api">
+      <created>1500818437274</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1500818437274</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="12732000" />
+    <option name="totallyTimeSpent" value="12872000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1276" height="998" extended-state="4" />
