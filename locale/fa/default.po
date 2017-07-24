@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Pi apis module\n"
-"POT-Creation-Date: 2017-07-23 18:32+0430\n"
+"POT-Creation-Date: 2017-07-24 09:45+0430\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: Pi\n"
@@ -51,7 +51,7 @@ msgstr "حساب کاربری شما ذخیره نشد"
 msgid "Your account create and activate. please login to system"
 msgstr "حساب کاربری شما ایجاد و فعال شد، می توانید به نرم افزار وارد شوید"
 
-#: src/Controller/Front/RegisterController.php:194
+#: src/Controller/Front/RegisterController.php:203
 msgid "Your account information update"
 msgstr "اطلاعات حساب کاربری شما با موفقیت ویرایش شد"
 

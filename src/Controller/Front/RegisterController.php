@@ -172,6 +172,11 @@ class RegisterController extends ActionController
 
                     // Fields
                     $fields = Pi::api('user', 'user')->getFields($uid, 'profile');
+                    if (isset($values['credential']) && !isset($fields['credential'])) {
+                        $fields['credential'] = '';
+                    }
+
+
                     // Set just needed fields
                     foreach (array_keys($values) as $key) {
                         if (!in_array($key, array_keys($fields))) {
@@ -180,10 +185,14 @@ class RegisterController extends ActionController
                     }
                     // From user module
                     $values['last_modified'] = time();
+                    // Set first and last name as name
                     if (isset($values['first_name']) || isset($values['last_name'])) {
                         $values['name'] = $values['first_name'] . ' ' . $values['last_name'];
                     }
-
+                    // Set mobile as identity
+                    if (isset($values['mobile']) || !empty($values['mobile'])) {
+                        $values['identity'] = $values['mobile'];
+                    }
                     $status = Pi::api('user', 'user')->updateUser($uid, $values);
                     if ($status == 1) {
                         Pi::service('event')->trigger('user_update', $uid);

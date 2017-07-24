@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="737c4100-2f36-4ccb-98d8-7003c7fd382b" name="Default" comment="Work on api">
+    <list default="true" id="737c4100-2f36-4ccb-98d8-7003c7fd382b" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/locale/fa/default.mo" afterPath="$PROJECT_DIR$/locale/fa/default.mo" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/locale/fa/default.po" afterPath="$PROJECT_DIR$/locale/fa/default.po" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controller/Front/RegisterController.php" afterPath="$PROJECT_DIR$/src/Controller/Front/RegisterController.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -29,8 +30,8 @@
       <file leaf-file-name="RegisterController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Controller/Front/RegisterController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="468">
-              <caret line="164" column="0" lean-forward="false" selection-start-line="164" selection-start-column="0" selection-end-line="164" selection-end-column="0" />
+            <state relative-caret-position="449">
+              <caret line="192" column="74" lean-forward="false" selection-start-line="192" selection-start-column="74" selection-end-line="192" selection-end-column="74" />
               <folding>
                 <element signature="e#304#311#0#PHP" expanded="true" />
               </folding>
@@ -117,8 +118,8 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="width" value="1276" />
-    <option name="height" value="998" />
+    <option name="width" value="1274" />
+    <option name="height" value="994" />
   </component>
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="1" id="Add" />
@@ -139,7 +140,6 @@
     </navigator>
     <panes>
       <pane id="Scratches" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -208,6 +208,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -348,7 +349,10 @@
       <workItem from="1500789116223" duration="117000" />
       <workItem from="1500799248319" duration="1002000" />
       <workItem from="1500817242878" duration="43000" />
-      <workItem from="1500818432783" duration="141000" />
+      <workItem from="1500818432783" duration="754000" />
+      <workItem from="1500872342979" duration="173000" />
+      <workItem from="1500872585746" duration="53000" />
+      <workItem from="1500872825625" duration="788000" />
     </task>
     <task id="LOCAL-00001" summary="Start work on api module">
       <created>1494412562343</created>
@@ -483,17 +487,24 @@
       <option name="project" value="LOCAL" />
       <updated>1500818437274</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="Work on api">
+      <created>1500818576354</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1500818576354</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="12872000" />
+    <option name="totallyTimeSpent" value="14499000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1276" height="998" extended-state="4" />
+    <frame x="0" y="0" width="1274" height="994" extended-state="4" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27487764" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.03267974" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -935,8 +946,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/Front/RegisterController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="468">
-          <caret line="164" column="0" lean-forward="false" selection-start-line="164" selection-start-column="0" selection-end-line="164" selection-end-column="0" />
+        <state relative-caret-position="449">
+          <caret line="192" column="74" lean-forward="false" selection-start-line="192" selection-start-column="74" selection-end-line="192" selection-end-column="74" />
           <folding>
             <element signature="e#304#311#0#PHP" expanded="true" />
           </folding>
