@@ -294,14 +294,14 @@ class UserController extends ActionController
                         );
                         // Find user
                         $uid = Pi::user()->getId();
-                        $result = Pi::user()->get($uid, $fields);
-                        $result['avatar'] = Pi::service('avatar')->get($result['id'], 'xxlarge', false);
-                        $result['uid'] = $uid;
-                        $result['check'] = 1;
-                        $result['sessionid'] = Pi::service('session')->getId();
+                        $user = Pi::user()->get($uid, $fields);
+                        $user['avatar'] = Pi::service('avatar')->get($user['id'], 'xxlarge', false);
+                        $user['uid'] = $uid;
+                        $user['check'] = 1;
+                        $user['sessionid'] = Pi::service('session')->getId();
 
                         if (Pi::service('module')->isActive('support')) {
-                            $result['support'] = Pi::api('ticket', 'support')->getCount($uid);
+                            $user['support'] = Pi::api('ticket', 'support')->getCount($uid);
                         }
 
                         // Set order info
@@ -314,13 +314,18 @@ class UserController extends ActionController
                             $score = Pi::api('invoice', 'order')->getInvoiceScore($uid);
 
 
-                            $result['credit_amount'] = $credit['amount'];
-                            $result['credit_amount_view'] = $credit['amount_view'];
-                            $result['invoice_count'] = count($invoices);
-                            $result['invoice_count_view'] = _number(count($invoices));
-                            $result['score_type'] = $score['type'];
-                            $result['score_amount'] = $score['amount'];
-                            $result['score_amount_view'] = Pi::api('api', 'order')->viewPrice($score['amount']);
+                            $user['credit_amount'] = $credit['amount'];
+                            $user['credit_amount_view'] = $credit['amount_view'];
+                            $user['invoice_count'] = count($invoices);
+                            $user['invoice_count_view'] = _number(count($invoices));
+                            $user['score_type'] = $score['type'];
+                            $user['score_amount'] = $score['amount'];
+                            $user['score_amount_view'] = Pi::api('api', 'order')->viewPrice($score['amount']);
+                        }
+
+                        $result = array();
+                        foreach ($user as $key => $value) {
+                            $result[$key] = ($value == null) ? '' : $value;
                         }
                     } else {
                         $result = array(
