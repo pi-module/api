@@ -61,9 +61,9 @@ class RegisterController extends ActionController
                         return $result;
                     }
                     // Check email force set on register form
-                    if (!isset($values['email']) || empty($values['email'])) {
-                        $values['email'] = '';
-                    }
+                    //if (!isset($values['email']) || empty($values['email'])) {
+                        //$values['email'] = '';
+                    //}
                     // Set email as identity if not set on register form
                     if (!isset($values['identity']) || empty($values['identity'])) {
                         $values['identity'] = $values['mobile'];
@@ -79,6 +79,17 @@ class RegisterController extends ActionController
                     // Set values
                     $values['last_modified'] = time();
                     $values['ip_register']   = Pi::user()->getIp();
+
+                    // Check mobile is duplicated
+                    $where = array('identity' => $values['identity']);
+                    $count = Pi::model('user_account')->count($where);
+                    if ($count) {
+                        $result = array(
+                            'status' => 0,
+                            'message' => __('This mobile number is taken before by another user'),
+                        );
+                        return $result;
+                    }
 
                     // Add user
                     $uid = Pi::api('user', 'user')->addUser($values);
@@ -193,6 +204,22 @@ class RegisterController extends ActionController
                     if (isset($values['mobile']) || !empty($values['mobile'])) {
                         $values['identity'] = $values['mobile'];
                     }
+
+
+                    // Check mobile is duplicated
+                    $where = array(
+                        'identity' => $values['identity'],
+                        'id <> ?'  => $uid,
+                    );
+                    $count = Pi::model('user_account')->count($where);
+                    if ($count) {
+                        $result = array(
+                            'status' => 0,
+                            'message' => __('This mobile number is taken before by another user'),
+                        );
+                        return $result;
+                    }
+
                     $status = Pi::api('user', 'user')->updateUser($uid, $values);
                     if ($status == 1) {
                         Pi::service('event')->trigger('user_update', $uid);

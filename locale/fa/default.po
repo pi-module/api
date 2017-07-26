@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Pi apis module\n"
-"POT-Creation-Date: 2017-07-24 09:45+0430\n"
+"POT-Creation-Date: 2017-07-26 15:59+0430\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: Pi\n"
@@ -39,19 +39,24 @@ msgid "Error to save story"
 msgstr "خطا در ذخیره مطلب"
 
 #: src/Controller/Front/RegisterController.php:25
-#: src/Controller/Front/RegisterController.php:131
+#: src/Controller/Front/RegisterController.php:142
 msgid "Error on register"
 msgstr "خطا در ثبت نام"
 
-#: src/Controller/Front/RegisterController.php:88
+#: src/Controller/Front/RegisterController.php:89
+#: src/Controller/Front/RegisterController.php:218
+msgid "This mobile number is taken before by another user"
+msgstr "این شماره موبایل قبلا توسط یک کاربر دیگر در سیستم ثبت شده است"
+
+#: src/Controller/Front/RegisterController.php:99
 msgid "User account was not saved."
 msgstr "حساب کاربری شما ذخیره نشد"
 
-#: src/Controller/Front/RegisterController.php:102
+#: src/Controller/Front/RegisterController.php:113
 msgid "Your account create and activate. please login to system"
 msgstr "حساب کاربری شما ایجاد و فعال شد، می توانید به نرم افزار وارد شوید"
 
-#: src/Controller/Front/RegisterController.php:203
+#: src/Controller/Front/RegisterController.php:230
 msgid "Your account information update"
 msgstr "اطلاعات حساب کاربری شما با موفقیت ویرایش شد"
 
@@ -87,15 +92,15 @@ msgstr "درخواست ارسالی تنظیم نشده است"
 msgid "You logged out successfully."
 msgstr "از سیستم خاریج شدید"
 
-#: src/Controller/Front/UserController.php:408
+#: src/Controller/Front/UserController.php:413
 msgid "You have logged in successfully"
 msgstr "با موفقیت به سیستم وارد شدید"
 
-#: src/Controller/Front/UserController.php:420
+#: src/Controller/Front/UserController.php:425
 msgid "Bind error"
 msgstr "خطا"
 
-#: src/Controller/Front/UserController.php:424
+#: src/Controller/Front/UserController.php:429
 msgid "Authentication is not valid"
 msgstr "اطلاعات ایمیل یا واژه رمز وارد شده صحیح نیست"
 
