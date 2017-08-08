@@ -47,6 +47,9 @@ class PageController extends ActionController
                         $row->content,
                         'html'
                     );
+                    $content = strip_tags($content,"<b><strong><i><p><ul><li><ol><h2><h3><h4>");
+                    $content = str_replace("</p>\r\n\r\n<p>", "<br />", $content);
+
                     $result['title'] = $row->title;
                     $result['content'] = $content;
 
