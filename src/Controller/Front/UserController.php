@@ -243,7 +243,6 @@ class UserController extends ActionController
         }
     }
 
-
     public function profileAction()
     {
         // Set result
@@ -357,17 +356,37 @@ class UserController extends ActionController
     {
         // Set return array
         $return = array(
-            'message' => '',
-            'login' => 0,
-            'identity' => '',
-            'email' => '',
-            'name' => '',
-            'avatar' => '',
-            'uid' => 0,
-            'userid' => 0,
-            'sessionid' => '',
-            'error' => 0,
-            'check' => 0
+            'login'        => 0,
+            'error'        => 0,
+            'check'        => 0,
+            'userid'       => 0,
+            'uid'          => 0,
+            'message'      => '',
+            'sessionid'    => '',
+            'identity'     => '',
+            'email'        => '',
+            'name'         => '',
+            'first_name'   => '', 
+            'last_name'    => '',
+            'id_number'    => '', 
+            'phone'        => '',
+            'mobile'       => '',
+            'address1'     => '',
+            'address2'     => '',
+            'country'      => '',
+            'state'        => '',
+            'city'         => '',
+            'zip_code'     => '', 
+            'company'      => '',
+            'company_id'   => '', 
+            'company_vat'  => '',
+            'your_gift'    => '', 
+            'your_post'    => '', 
+            'company_type' => '', 
+            'latitude'     => '',
+            'longitude'    => '',
+            'avatar'       => '',
+            'support'      => '',
         );
 
         // Set field
@@ -405,28 +424,53 @@ class UserController extends ActionController
                 );
                 Pi::service('event')->trigger('user_login', $args);
                 // Get user information
-                //$user = Pi::model('user_account')->find($uid)->toArray();
-                $user = Pi::user()->get($uid, array(
-                    'id', 'identity', 'name', 'email'
-                ));
+                $fields = array(
+                    'id', 'identity', 'name', 'email', 'first_name', 'last_name', 'id_number', 'phone', 'mobile',
+                    'address1', 'address2', 'country', 'state', 'city', 'zip_code', 'company', 'company_id', 'company_vat',
+                    'your_gift', 'your_post', 'company_type', 'latitude', 'longitude',
+                );
+                // Find user
+                $user = Pi::user()->get($uid, $fields);
                 // Set return array
-                $return['message'] = __('You have logged in successfully');
-                $return['login'] = 1;
-                $return['identity'] = $user['identity'];
-                $return['email'] = $user['email'];
-                $return['name'] = $user['name'];
-                $return['avatar'] = Pi::service('user')->avatar($user['id'], 'medium', false);
-                $return['uid'] = $user['id'];
-                $return['userid'] = $user['id'];
-                $return['sessionid'] = Pi::service('session')->getId();
-                $return['check'] = 1;
+                $return['message']      = __('You have logged in successfully');
+                $return['login']        = 1;
+                $return['sessionid']    = Pi::service('session')->getId();
+                $return['check']        = 1;
+                $return['userid']       = $user['id'];
+                $return['uid']          = $user['id'];
+                $return['identity']     = $user['identity'];
+                $return['email']        = $user['email'];
+                $return['name']         = $user['name'];
+                $return['first_name']   = isset($user['first_name']) ? $user['first_name'] : '';
+                $return['last_name']    = isset($user['last_name']) ? $user['last_name'] : '';
+                $return['id_number']    = isset($user['id_number']) ? $user['id_number'] : '';
+                $return['phone']        = isset($user['phone']) ? $user['phone'] : '';
+                $return['mobile']       = isset($user['mobile']) ? $user['mobile'] : '';
+                $return['address1']     = isset($user['address1']) ? $user['address1'] : '';
+                $return['address2']     = isset($user['address2']) ? $user['address2'] : '';
+                $return['country']      = isset($user['country']) ? $user['country'] : '';
+                $return['state']        = isset($user['state']) ? $user['state'] : '';
+                $return['city']         = isset($user['city']) ? $user['city'] : '';
+                $return['zip_code']     = isset($user['zip_code']) ? $user['zip_code'] : '';
+                $return['company']      = isset($user['company']) ? $user['company'] : '';
+                $return['company_id']   = isset($user['company_id']) ? $user['company_id'] : '';
+                $return['company_vat']  = isset($user['company_vat']) ? $user['company_vat'] : '';
+                $return['your_gift']    = isset($user['your_gift']) ? $user['your_gift'] : '';
+                $return['your_post']    = isset($user['your_post']) ? $user['your_post'] : '';
+                $return['company_type'] = isset($user['company_type']) ? $user['company_type'] : '';
+                $return['latitude']     = isset($user['latitude']) ? $user['latitude'] : '';
+                $return['longitude']    = isset($user['longitude']) ? $user['longitude'] : '';
+                $return['avatar']       = Pi::service('user')->avatar($user['id'], 'medium', false);
+                if (Pi::service('module')->isActive('support')) {
+                    $user['support']    = Pi::api('ticket', 'support')->getCount($uid);
+                }
             } else {
-                $return['error'] = 1;
-                $return['message'] = __('Bind error');
+                $return['error']        = 1;
+                $return['message']      = __('Bind error');
             }
         } else {
-            $return['error'] = 1;
-            $return['message'] = __('Authentication is not valid');
+            $return['error']            = 1;
+            $return['message']          = __('Authentication is not valid');
         }
 
         return $return;

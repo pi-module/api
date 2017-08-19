@@ -48,6 +48,7 @@ class NewsController extends ActionController
                     $options['topic'] = $this->params('topic');
                     $options['tag'] = $this->params('tag');
                     $options['limit'] = $this->params('limit');
+                    $options['getUser'] = true;
                     $result = Pi::api('api', 'news')->jsonList($options);
 
 
@@ -86,7 +87,7 @@ class NewsController extends ActionController
                 if ($check['status'] == 1) {
 
                     $id = $this->params('id');
-                    $result = Pi::api('api', 'news')->jsonSingle($id);
+                    $result = Pi::api('api', 'news')->jsonSingle($id, true);
 
                     return $result;
                 } else {
