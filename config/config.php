@@ -112,6 +112,14 @@ return array(
             'filter'        => 'number_int',
             'value'         => 0
         ),
+        'active_portfolio' => array(
+            'category'      => 'active',
+            'title'         => _a('Active portfolio'),
+            'description'   => '',
+            'edit'          => 'checkbox',
+            'filter'        => 'number_int',
+            'value'         => 0
+        ),
         'active_forms' => array(
             'category'      => 'active',
             'title'         => _a('Active forms'),

@@ -99,6 +99,20 @@ class OrderController extends ActionController
                     // Get list
                     $order =  Pi::api('order', 'order')->getOrder($id);
                     if ($order['uid'] == $uid) {
+                        $products = Pi::api('order', 'order')->listProduct($order['id'], $order['module_name']);
+                        $productsList = array();
+                        foreach ($products as $product) {
+                            $productsList[] = $product['details']['title'];
+                        }
+                        $order['products'] = implode(' , ',$productsList);
+                        $invoices = Pi::api('invoice', 'order')->getInvoiceFromOrder($order['id'], false);
+                        $order['invoices_count'] = count($invoices);
+                        $order['invoices_count_view'] = _number(count($invoices));
+                        foreach ($invoices as $invoice) {
+                            $order['invoices'][] = $invoice;
+                        }
+
+
                         $order = array($order);
                         return $order;
                     }
@@ -205,6 +219,14 @@ class OrderController extends ActionController
                     // Get list
                     $invoice = Pi::api('invoice', 'order')->getInvoice($id);
                     if ($invoice['uid'] == $uid) {
+                        $order = Pi::api('order', 'order')->getOrder($invoice['order']);
+                        $products = Pi::api('order', 'order')->listProduct($order['id'], $order['module_name']);
+                        $productsList = array();
+                        foreach ($products as $product) {
+                            $productsList[] = $product['details']['title'];
+                        }
+                        $invoice['products'] = implode(' , ',$productsList);
+                        $invoice['orderInfo'] = $order;
                         $invoice = array($invoice);
                         return $invoice;
                     }
@@ -246,11 +268,12 @@ class OrderController extends ActionController
                 $check = Pi::api('token', 'tools')->check($token, $module, 'api');
                 if ($check['status'] == 1) {
 
-
-
+                    // Load language
+                    Pi::service('i18n')->load(array('module/order', 'default'));
+                    Pi::service('i18n')->load(array('module/preorder', 'default'));
 
                     $result['list'] = array();
-                    $where = array('uid' => $uid);
+                    $where = array('uid' => $uid, 'status' => array(1,2,3,7));
                     $order = array('time_create DESC', 'id DESC');
                     $select = Pi::model('order', 'preorder')->select()->where($where)->order($order);
                     $rowset = Pi::model('order', 'preorder')->selectWith($select);
@@ -272,5 +295,146 @@ class OrderController extends ActionController
         } else {
             return $result;
         }
+    }
+
+    public function preOrderSingleAction()
+    {
+        // Set result
+        $result = array(
+            'status' => 0,
+            'message' => '',
+        );
+        // Set template
+        $this->view()->setTemplate(false)->setLayout('layout-content');
+        // Get info from url
+        $module = $this->params('module');
+        $token = $this->params('token');
+        $uid = $this->params('uid');
+        $id = $this->params('id');
+        // Check module
+        if (Pi::service('module')->isActive('order')) {
+            // Check config
+            $config = Pi::service('registry')->config->read($module);
+            if ($config['active_order']) {
+                // Check token
+                $check = Pi::api('token', 'tools')->check($token, $module, 'api');
+                if ($check['status'] == 1) {
+
+
+
+
+                    // Load language
+                    Pi::service('i18n')->load(array('module/order', 'default'));
+                    Pi::service('i18n')->load(array('module/preorder', 'default'));
+
+                    // Get list
+                    $preOrder = Pi::api('order', 'preorder')->getOrder($id);
+                    if ($preOrder['uid'] == $uid) {
+                        $preOrder = array($preOrder);
+                        return $preOrder;
+                    }
+
+
+
+
+                    return $result;
+                } else {
+                    return $check;
+                }
+            } else {
+                return $result;
+            }
+        } else {
+            return $result;
+        }
+    }
+
+    public function historyAction()
+    {
+        // Set result
+        $result = array(
+            'status' => 0,
+            'message' => '',
+        );
+        // Set template
+        $this->view()->setTemplate(false)->setLayout('layout-content');
+        // Get info from url
+        $module = $this->params('module');
+        $token = $this->params('token');
+        $uid = $this->params('uid');
+        $page = $this->params('page', 1);
+        $limit = $this->params('limit', 25);
+        // Check module
+        if (Pi::service('module')->isActive('order')) {
+            // Check config
+            $config = Pi::service('registry')->config->read($module);
+            if ($config['active_order']) {
+                // Check token
+                $check = Pi::api('token', 'tools')->check($token, $module, 'api');
+                if ($check['status'] == 1) {
+
+                    // Load language
+                    Pi::service('i18n')->load(array('module/order', 'default'));
+                    Pi::service('i18n')->load(array('module/preorder', 'default'));
+
+
+
+
+
+
+                    // Get info
+                    $list = array();
+                    $order = array('time_create DESC', 'id DESC');
+                    $offset = (int)($page - 1) * $limit;
+                    $where = array('uid' => $uid);
+                    // Select
+                    $select = Pi::model('history', 'order')->select()->where($where)->order($order)->offset($offset)->limit($limit);
+                    $rowset = Pi::model('history', 'order')->selectWith($select);
+                    // Make list
+                    foreach ($rowset as $row) {
+                        $history = $row->toArray();
+                        $history['amount_view'] = Pi::api('api', 'order')->viewPrice($row->amount);
+                        $history['amount_old_view'] = Pi::api('api', 'order')->viewPrice($row->amount_old);
+                        $history['amount_new_view'] = Pi::api('api', 'order')->viewPrice($row->amount_new);
+
+                        $history['time_create_view'] = _date($row->time_create);
+                        switch ($row->status_fluctuation) {
+                            case 'increase':
+                                $history['status_fluctuation_view'] = __('Increase');
+                                break;
+
+                            case 'decrease':
+                                $history['status_fluctuation_view'] = __('Decrease');
+                                break;
+                        }
+
+                        switch ($row->status_action) {
+                            case 'automatic':
+                                $history['status_action_view'] = __('Automatic');
+                                break;
+
+                            case 'manual':
+                                $history['status_action_view'] = __('Manual');
+                                break;
+                        }
+
+                        $list[] = $history;
+                    }
+                    $result['history'] = $list;
+
+
+
+
+                    return $result;
+                } else {
+                    return $check;
+                }
+            } else {
+                return $result;
+            }
+        } else {
+            return $result;
+        }
+
     }
 }
