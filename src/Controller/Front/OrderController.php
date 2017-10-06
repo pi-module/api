@@ -431,6 +431,15 @@ class OrderController extends ActionController
                     // Get list
                     $preOrder = Pi::api('order', 'preorder')->getOrder($id);
                     if ($preOrder['uid'] == $uid) {
+
+                        $i = 1;
+                        foreach ($preOrder['basket'] as $basket) {
+                            $preOrder['url_' . $i] = $basket['url'];
+                            $preOrder['title_' . $i] = $basket['title'];
+                            $preOrder['price_' . $i] = Pi::api('api', 'order')->viewPrice($basket['price']);
+                            $i++;
+                        }
+
                         $preOrder = array($preOrder);
                         return $preOrder;
                     }
@@ -491,7 +500,7 @@ class OrderController extends ActionController
                     foreach ($installments as $installment) {
                         if ($installment['id'] > 0) {
                             $result['plans'][] = array(
-                                'info' => sprintf('%s /n پیش پرداخت %s /n مبلغ هر قسط %s',
+                                'info' => sprintf('%s - پیش پرداخت %s - مبلغ هر قسط %s',
                                     $installment['title'],
                                     Pi::api('api', 'order')->viewPrice($installment['invoices'][0]['price']),
                                     Pi::api('api', 'order')->viewPrice($installment['invoices'][1]['price'])),
@@ -507,6 +516,116 @@ class OrderController extends ActionController
 
                         }
                     }
+
+                    return $result;
+                } else {
+                    return $check;
+                }
+            } else {
+                return $result;
+            }
+        } else {
+            return $result;
+        }
+    }
+
+    public function addAction()
+    {
+        // Set result
+        $result = array(
+            'status' => 0,
+            'message' => '',
+        );
+        // Set template
+        $this->view()->setTemplate(false)->setLayout('layout-content');
+        // Get info from url
+        $module = $this->params('module');
+        $token = $this->params('token');
+
+        $uid = $this->params('uid');
+        $price = $this->params('price');
+        $url = $this->params('url');
+        $title = $this->params('title');
+        $plan = $this->params('plan');
+
+        // Check module
+        if (Pi::service('module')->isActive('order') && Pi::service('module')->isActive('preorder')) {
+            // Check config
+            $config = Pi::service('registry')->config->read($module);
+            if ($config['active_order']) {
+                // Check token
+                $check = Pi::api('token', 'tools')->check($token, $module, 'api');
+                if ($check['status'] == 1) {
+
+                    if (!empty($uid) && is_numeric($uid)
+                        && !empty($price) && is_numeric($price)
+                        && !empty($plan) && is_numeric($plan)
+                        && !empty($url) && filter_var($url, FILTER_VALIDATE_URL)
+                        && !empty($title)
+                    ) {
+
+                        // Load language
+                        Pi::service('i18n')->load(array('module/order', 'default'));
+                        Pi::service('i18n')->load(array('module/preorder', 'default'));
+
+                        // Set user
+                        $user = Pi::api('user', 'order')->getUserInformation($uid);
+                        $user['uid'] = $user['id'];
+                        unset($user['id']);
+
+                        // Set order values
+                        $values = array(
+                            'uid'         => $user['uid'],
+                            'plan'        => intval($plan),
+                            'time_create' => time(),
+                            'status'      => 1,
+                            'ip'          => Pi::user()->getIp(),
+                            'id_number'   => $user['id_number'],
+                            'first_name'  => $user['first_name'],
+                            'last_name'   => $user['last_name'],
+                            'email'       => $user['email'],
+                            'phone'       => $user['phone'],
+                            'mobile'      => $user['mobile'],
+                            'address1'    => $user['address1'],
+                            'address2'    => $user['address2'],
+                            'country'     => $user['country'],
+                            'state'       => $user['state'],
+                            'city'        => $user['city'],
+                            'zip_code'    => $user['zip_code'],
+                            'company'     => $user['company'],
+                        );
+
+                        // Save order
+                        $orderRow = Pi::model('order', 'preorder')->createRow();
+                        $orderRow->assign($values);
+                        $orderRow->save();
+
+                        // Save basket
+                        $basketValues = array(
+                            'order'  => $orderRow->id,
+                            'uid'    => $orderRow->uid,
+                            'title'  => $title,
+                            'url'    => $url,
+                            'price'  => $price * 10,
+                        );
+                        $basketRow = Pi::model('basket', 'preorder')->createRow();
+                        $basketRow->assign($basketValues);
+                        $basketRow->save();
+
+                        // Canonize order
+                        $orderSave = Pi::api('order', 'preorder')->canonizeOrder($orderRow);
+
+                        // Notification
+                        Pi::api('notification', 'preorder')->addOrder($orderSave);
+
+                        // Set result
+                        $result['status'] = 1;
+                        $result['message'] = 'Its work !';
+                    } else {
+                        $result['message'] = __('Information not rue');
+                    }
+
+
 
                     return $result;
                 } else {
