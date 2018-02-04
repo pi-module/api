@@ -288,8 +288,7 @@ class UserController extends ActionController
                     if (Pi::service('user')->hasIdentity()) {
                         $fields = [
                             'id', 'identity', 'name', 'email', 'first_name', 'last_name', 'id_number', 'phone', 'mobile',
-                            'address1', 'address2', 'country', 'state', 'city', 'zip_code', 'company', 'company_id', 'company_vat',
-                            'your_gift', 'your_post', 'company_type', 'latitude', 'longitude',
+                            'address1', 'address2', 'country', 'state', 'city', 'zip_code',
                         ];
                         // Find user
                         $uid               = Pi::user()->getId();
@@ -328,13 +327,26 @@ class UserController extends ActionController
                         }
                     } else {
                         $result = [
-                            'check'     => 0,
-                            'uid'       => Pi::user()->getId(),
-                            'identity'  => Pi::user()->getIdentity(),
-                            'email'     => '',
-                            'name'      => '',
-                            'avatar'    => '',
-                            'sessionid' => Pi::service('session')->getId(),
+                            'check'      => 0,
+                            'uid'        => Pi::user()->getId(),
+                            'identity'   => Pi::user()->getIdentity(),
+                            'email'      => '',
+                            'name'       => '',
+                            'first_name' => '',
+                            'last_name'  => '',
+                            'id_number'  => '',
+                            'phone'      => '',
+                            'mobile'     => '',
+                            'address1'   => '',
+                            'address2'   => '',
+                            'country'    => '',
+                            'state'      => '',
+                            'city'       => '',
+                            'zip_code'   => '',
+                            'avatar'     => '',
+                            'sessionid'  => Pi::service('session')->getId(),
+
+
                         ];
                     }
 
