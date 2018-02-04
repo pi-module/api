@@ -18,15 +18,15 @@
       <file leaf-file-name="UserController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Controller/Front/UserController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-576">
-              <caret line="120" column="0" lean-forward="false" selection-start-line="120" selection-start-column="0" selection-end-line="120" selection-end-column="0" />
+            <state relative-caret-position="18">
+              <caret line="290" column="102" lean-forward="false" selection-start-line="290" selection-start-column="102" selection-end-line="290" selection-end-column="102" />
               <folding>
                 <element signature="e#304#311#0#PHP" expanded="true" />
                 <element signature="e#502#4992#0#PHP" expanded="false" />
                 <element signature="e#8186#9796#0#PHP" expanded="false" />
-                <element signature="e#15175#19912#0#PHP" expanded="false" />
-                <element signature="e#19918#23949#0#PHP" expanded="false" />
-                <element signature="e#23955#29784#0#PHP" expanded="false" />
+                <element signature="e#14649#19386#0#PHP" expanded="false" />
+                <element signature="e#19392#23423#0#PHP" expanded="false" />
+                <element signature="e#23429#29258#0#PHP" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -408,7 +408,7 @@
       <workItem from="1507297523271" duration="16000" />
       <workItem from="1517726224072" duration="8000" />
       <workItem from="1517726418371" duration="671000" />
-      <workItem from="1517737342651" duration="1448000" />
+      <workItem from="1517737342651" duration="1535000" />
     </task>
     <task id="LOCAL-00001" summary="Start work on api module">
       <created>1494412562343</created>
@@ -613,11 +613,18 @@
       <option name="project" value="LOCAL" />
       <updated>1517726488355</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="Work on api">
+      <created>1517739850336</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1517739850336</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="30792000" />
+    <option name="totallyTimeSpent" value="30879000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="994" extended-state="6" />
@@ -964,7 +971,7 @@
         <state relative-caret-position="864">
           <caret line="60" column="17" lean-forward="false" selection-start-line="60" selection-start-column="17" selection-end-line="60" selection-end-column="17" />
           <folding>
-            <element signature="e#304#311#0#PHP" expanded="true" />
+            <element signature="e#304#311#0#PHP" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1032,15 +1039,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/Front/UserController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-576">
-          <caret line="120" column="0" lean-forward="false" selection-start-line="120" selection-start-column="0" selection-end-line="120" selection-end-column="0" />
+        <state relative-caret-position="18">
+          <caret line="290" column="102" lean-forward="false" selection-start-line="290" selection-start-column="102" selection-end-line="290" selection-end-column="102" />
           <folding>
             <element signature="e#304#311#0#PHP" expanded="true" />
             <element signature="e#502#4992#0#PHP" expanded="false" />
             <element signature="e#8186#9796#0#PHP" expanded="false" />
-            <element signature="e#15175#19912#0#PHP" expanded="false" />
-            <element signature="e#19918#23949#0#PHP" expanded="false" />
-            <element signature="e#23955#29784#0#PHP" expanded="false" />
+            <element signature="e#14649#19386#0#PHP" expanded="false" />
+            <element signature="e#19392#23423#0#PHP" expanded="false" />
+            <element signature="e#23429#29258#0#PHP" expanded="false" />
           </folding>
         </state>
       </provider>
