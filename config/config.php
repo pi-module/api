@@ -11,138 +11,138 @@
  * @author Hossein Azizabadi <azizabadi@faragostaresh.com>
  */
 
-return array(
-    'category' => array(
-        array(
-            'name'      => 'active',
-            'title'     => _t('Active'),
-        ),
-        array(
-            'name'      => 'setting',
-            'title'     => _t('Setting'),
-        ),
-    ),
-    'item' => array(
+return [
+    'category' => [
+        [
+            'name'  => 'active',
+            'title' => _t('Active'),
+        ],
+        [
+            'name'  => 'setting',
+            'title' => _t('Setting'),
+        ],
+    ],
+    'item'     => [
         // Active
-        'active_user' => array(
-            'category'      => 'active',
-            'title'         => _a('Active user'),
-            'description'   => '',
-            'edit'          => 'checkbox',
-            'filter'        => 'number_int',
-            'value'         => 0
-        ),
-        'active_register' => array(
-            'category'      => 'active',
-            'title'         => _a('Active register'),
-            'description'   => '',
-            'edit'          => 'checkbox',
-            'filter'        => 'number_int',
-            'value'         => 0
-        ),
-        'active_page' => array(
-            'category'      => 'active',
-            'title'         => _a('Active page'),
-            'description'   => '',
-            'edit'          => 'checkbox',
-            'filter'        => 'number_int',
-            'value'         => 0
-        ),
-        'active_news' => array(
-            'category'      => 'active',
-            'title'         => _a('Active news'),
-            'description'   => '',
-            'edit'          => 'checkbox',
-            'filter'        => 'number_int',
-            'value'         => 0
-        ),
-        'active_event' => array(
-            'category'      => 'active',
-            'title'         => _a('Active event'),
-            'description'   => '',
-            'edit'          => 'checkbox',
-            'filter'        => 'number_int',
-            'value'         => 0
-        ),
-        'active_video' => array(
-            'category'      => 'active',
-            'title'         => _a('Active video'),
-            'description'   => '',
-            'edit'          => 'checkbox',
-            'filter'        => 'number_int',
-            'value'         => 0
-        ),
-        'active_shop' => array(
-            'category'      => 'active',
-            'title'         => _a('Active shop'),
-            'description'   => '',
-            'edit'          => 'checkbox',
-            'filter'        => 'number_int',
-            'value'         => 0
-        ),
-        'active_guide' => array(
-            'category'      => 'active',
-            'title'         => _a('Active guide'),
-            'description'   => '',
-            'edit'          => 'checkbox',
-            'filter'        => 'number_int',
-            'value'         => 0
-        ),
-        'active_contact' => array(
-            'category'      => 'active',
-            'title'         => _a('Active contact'),
-            'description'   => '',
-            'edit'          => 'checkbox',
-            'filter'        => 'number_int',
-            'value'         => 0
-        ),
-        'active_support' => array(
-            'category'      => 'active',
-            'title'         => _a('Active support'),
-            'description'   => '',
-            'edit'          => 'checkbox',
-            'filter'        => 'number_int',
-            'value'         => 0
-        ),
-        'active_order' => array(
-            'category'      => 'active',
-            'title'         => _a('Active order'),
-            'description'   => '',
-            'edit'          => 'checkbox',
-            'filter'        => 'number_int',
-            'value'         => 0
-        ),
-        'active_portfolio' => array(
-            'category'      => 'active',
-            'title'         => _a('Active portfolio'),
-            'description'   => '',
-            'edit'          => 'checkbox',
-            'filter'        => 'number_int',
-            'value'         => 0
-        ),
-        'active_forms' => array(
-            'category'      => 'active',
-            'title'         => _a('Active forms'),
-            'description'   => '',
-            'edit'          => 'checkbox',
-            'filter'        => 'number_int',
-            'value'         => 0
-        ),
-        'active_external' => array(
-            'category'      => 'active',
-            'title'         => _a('Active external services / modules'),
-            'description'   => '',
-            'edit'          => 'checkbox',
-            'filter'        => 'number_int',
-            'value'         => 0
-        ),
-        // Setting
-        'telegram_api_key' => array(
-            'category' => 'setting',
-            'title' => _a('Telegram api key'),
+        'active_user'      => [
+            'category'    => 'active',
+            'title'       => _a('Active user'),
             'description' => '',
-            'edit' => 'text',
-            'filter' => 'string',
-        ),
-    ),
-);
+            'edit'        => 'checkbox',
+            'filter'      => 'number_int',
+            'value'       => 0,
+        ],
+        'active_register'  => [
+            'category'    => 'active',
+            'title'       => _a('Active register'),
+            'description' => '',
+            'edit'        => 'checkbox',
+            'filter'      => 'number_int',
+            'value'       => 0,
+        ],
+        'active_page'      => [
+            'category'    => 'active',
+            'title'       => _a('Active page'),
+            'description' => '',
+            'edit'        => 'checkbox',
+            'filter'      => 'number_int',
+            'value'       => 0,
+        ],
+        'active_news'      => [
+            'category'    => 'active',
+            'title'       => _a('Active news'),
+            'description' => '',
+            'edit'        => 'checkbox',
+            'filter'      => 'number_int',
+            'value'       => 0,
+        ],
+        'active_event'     => [
+            'category'    => 'active',
+            'title'       => _a('Active event'),
+            'description' => '',
+            'edit'        => 'checkbox',
+            'filter'      => 'number_int',
+            'value'       => 0,
+        ],
+        'active_video'     => [
+            'category'    => 'active',
+            'title'       => _a('Active video'),
+            'description' => '',
+            'edit'        => 'checkbox',
+            'filter'      => 'number_int',
+            'value'       => 0,
+        ],
+        'active_shop'      => [
+            'category'    => 'active',
+            'title'       => _a('Active shop'),
+            'description' => '',
+            'edit'        => 'checkbox',
+            'filter'      => 'number_int',
+            'value'       => 0,
+        ],
+        'active_guide'     => [
+            'category'    => 'active',
+            'title'       => _a('Active guide'),
+            'description' => '',
+            'edit'        => 'checkbox',
+            'filter'      => 'number_int',
+            'value'       => 0,
+        ],
+        'active_contact'   => [
+            'category'    => 'active',
+            'title'       => _a('Active contact'),
+            'description' => '',
+            'edit'        => 'checkbox',
+            'filter'      => 'number_int',
+            'value'       => 0,
+        ],
+        'active_support'   => [
+            'category'    => 'active',
+            'title'       => _a('Active support'),
+            'description' => '',
+            'edit'        => 'checkbox',
+            'filter'      => 'number_int',
+            'value'       => 0,
+        ],
+        'active_order'     => [
+            'category'    => 'active',
+            'title'       => _a('Active order'),
+            'description' => '',
+            'edit'        => 'checkbox',
+            'filter'      => 'number_int',
+            'value'       => 0,
+        ],
+        'active_portfolio' => [
+            'category'    => 'active',
+            'title'       => _a('Active portfolio'),
+            'description' => '',
+            'edit'        => 'checkbox',
+            'filter'      => 'number_int',
+            'value'       => 0,
+        ],
+        'active_forms'     => [
+            'category'    => 'active',
+            'title'       => _a('Active forms'),
+            'description' => '',
+            'edit'        => 'checkbox',
+            'filter'      => 'number_int',
+            'value'       => 0,
+        ],
+        'active_external'  => [
+            'category'    => 'active',
+            'title'       => _a('Active external services / modules'),
+            'description' => '',
+            'edit'        => 'checkbox',
+            'filter'      => 'number_int',
+            'value'       => 0,
+        ],
+        // Setting
+        'telegram_api_key' => [
+            'category'    => 'setting',
+            'title'       => _a('Telegram api key'),
+            'description' => '',
+            'edit'        => 'text',
+            'filter'      => 'string',
+        ],
+    ],
+];

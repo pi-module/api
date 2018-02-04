@@ -11,9 +11,7 @@ namespace Module\Apis\Controller\Front;
 
 use Pi;
 use Pi\Mvc\Controller\ActionController;
-
 use TelegramBot\Api\BotApi as TelegramBotApi;
-use TelegramBot\Api\Client as TelegramClient;
 use TelegramBot\Api\Exception as TelegramException;
 use TelegramBot\Api\Types\ReplyKeyboardMarkup as TelegramReplyKeyboardMarkup;
 
@@ -28,15 +26,15 @@ class TelegramController extends ActionController
     {
         Pi::service('audit')->log('telegram', $_REQUEST);
         // Set result
-        $result = array(
-            'status' => 0,
+        $result = [
+            'status'  => 0,
             'message' => '',
-        );
+        ];
         // Set template
         $this->view()->setTemplate(false)->setLayout('layout-content');
         // Get info from url
         $module = $this->params('module');
-        $token = $this->params('token');
+        $token  = $this->params('token');
         // Check config
         $config = Pi::service('registry')->config->read($module);
         if ($config['active_external']) {
@@ -45,16 +43,16 @@ class TelegramController extends ActionController
             if ($check['status'] == 1) {
 
                 $telegram = json_decode(file_get_contents('php://input'));
-                $message = $telegram["message"];
-                $chatId = $message["chat"]["id"];
+                $message  = $telegram["message"];
+                $chatId   = $message["chat"]["id"];
 
                 Pi::service('audit')->log('telegram', $telegram);
                 Pi::service('audit')->log('telegram', $message);
                 Pi::service('audit')->log('telegram', $chatId);
 
                 try {
-                    $bot = new TelegramBotApi($config['telegram_api_key']);
-                    $keyboard = new TelegramReplyKeyboardMarkup(array(array("one", "two", "three")), true);
+                    $bot      = new TelegramBotApi($config['telegram_api_key']);
+                    $keyboard = new TelegramReplyKeyboardMarkup([["one", "two", "three"]], true);
                     $bot->sendMessage($chatId, "Test", false, null, $keyboard);
                 } catch (TelegramException $e) {
                     $e->getMessage();

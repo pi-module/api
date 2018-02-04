@@ -10,18 +10,18 @@
 /**
  * @author Hossein Azizabadi <azizabadi@faragostaresh.com>
  */
-return array(
+return [
     'front' => false,
-    'admin' => array(
-        'list' => array(
-            'label'        => _a('Api list'),
-            'permission'   => array(
+    'admin' => [
+        'list' => [
+            'label'      => _a('Api list'),
+            'permission' => [
                 'resource' => 'list',
-            ),
-            'route'        => 'admin',
-            'module'       => 'apis',
-            'controller'   => 'list',
-            'action'       => 'index',
-        ),
-    ),
-);
+            ],
+            'route'      => 'admin',
+            'module'     => 'apis',
+            'controller' => 'list',
+            'action'     => 'index',
+        ],
+    ],
+];

@@ -20,15 +20,15 @@ class VideoController extends ActionController
     public function sendAction()
     {
         // Set result
-        $result = array(
-            'status' => 0,
+        $result = [
+            'status'  => 0,
             'message' => '',
-        );
+        ];
         // Set template
         $this->view()->setTemplate(false)->setLayout('layout-content');
         // Get info from url
         $module = $this->params('module');
-        $token = $this->params('token');
+        $token  = $this->params('token');
         // Check module
         if (Pi::service('module')->isActive('video')) {
             // Check config
@@ -39,9 +39,7 @@ class VideoController extends ActionController
                 if ($check['status'] == 1) {
 
 
-
-
-                    $result['status'] = 1;
+                    $result['status']  = 1;
                     $result['message'] = 'Its work !';
                     return $result;
                 } else {

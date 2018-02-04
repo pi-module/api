@@ -10,13 +10,13 @@
 /**
  * @author Hossein Azizabadi <azizabadi@faragostaresh.com>
  */
-return array(
+return [
     // Admin section
-    'admin' => array(
-        'list' => array(
-            'title' => _a('Api list'),
-            'access' => array(//'admin',
-            ),
-        ),
-    ),
-);
+    'admin' => [
+        'list' => [
+            'title'  => _a('Api list'),
+            'access' => [//'admin',
+            ],
+        ],
+    ],
+];

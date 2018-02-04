@@ -21,8 +21,8 @@ class IndexController extends ActionController
     {
         // Set template
         $this->view()->setTemplate(false)->setLayout('layout-content');
-        return array(
-            'message' => 'It work !'
-        );
+        return [
+            'message' => 'It work !',
+        ];
     }
 }

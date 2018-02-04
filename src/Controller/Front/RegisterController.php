@@ -20,15 +20,15 @@ class RegisterController extends ActionController
     public function indexAction()
     {
         // Set result
-        $result = array(
-            'status' => 0,
+        $result = [
+            'status'  => 0,
             'message' => __('Error on register'),
-        );
+        ];
         // Set template
         $this->view()->setTemplate(false)->setLayout('layout-content');
         // Get info from url
         $module = $this->params('module');
-        $token = $this->params('token');
+        $token  = $this->params('token');
         // Check module
         if (Pi::service('module')->isActive('user')) {
             // Check config
@@ -54,15 +54,15 @@ class RegisterController extends ActionController
     public function editAction()
     {
         // Set result
-        $result = array(
-            'status' => 0,
+        $result = [
+            'status'  => 0,
             'message' => __('Error on register'),
-        );
+        ];
         // Set template
         $this->view()->setTemplate(false)->setLayout('layout-content');
         // Get info from url
         $module = $this->params('module');
-        $token = $this->params('token');
+        $token  = $this->params('token');
         // Check module
         if (Pi::service('module')->isActive('user')) {
             // Check config

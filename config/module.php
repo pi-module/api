@@ -10,34 +10,34 @@
 /**
  * @author Hossein Azizabadi <azizabadi@faragostaresh.com>
  */
-return array(
+return [
     // Module meta
-    'meta' => array(
-        'title'        => _a('APIs'),
-        'description'  => _a('Api system of mobile apps and external service'),
-        'version'      => '0.0.9',
-        'license'      => 'New BSD',
-        'logo'         => 'image/logo.png',
-        'readme'       => 'docs/readme.txt',
-        'demo'         => 'http://pialog.org',
-        'icon'         => 'fa-code',
-    ),
+    'meta'       => [
+        'title'       => _a('APIs'),
+        'description' => _a('Api system of mobile apps and external service'),
+        'version'     => '0.1.0',
+        'license'     => 'New BSD',
+        'logo'        => 'image/logo.png',
+        'readme'      => 'docs/readme.txt',
+        'demo'        => 'http://pialog.org',
+        'icon'        => 'fa-code',
+    ],
     // Dependency
-    'dependency' => array(
+    'dependency' => [
         'tools',
-    ),
+    ],
     // Author information
-    'author' => array(
-        'Name'         => 'Hossein Azizabadi',
-        'email'        => 'azizabadi@faragostaresh.com',
-        'website'      => 'http://pialog.org',
-        'credits'      => 'Pi Engine Team'
-    ),
+    'author'     => [
+        'Name'    => 'Hossein Azizabadi',
+        'email'   => 'azizabadi@faragostaresh.com',
+        'website' => 'http://pialog.org',
+        'credits' => 'Pi Engine Team',
+    ],
     // Resource
-    'resource' => array(
-        'config'       => 'config.php',
-        'permission'   => 'permission.php',
-        'page'         => 'page.php',
-        'navigation'   => 'navigation.php',
-    ),
-);
+    'resource'   => [
+        'config'     => 'config.php',
+        'permission' => 'permission.php',
+        'page'       => 'page.php',
+        'navigation' => 'navigation.php',
+    ],
+];

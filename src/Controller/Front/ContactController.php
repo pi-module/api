@@ -20,16 +20,16 @@ class ContactController extends ActionController
     public function sendAction()
     {
         // Set result
-        $result = array(
-            'status' => 0,
+        $result = [
+            'status'  => 0,
             'message' => '',
-        );
+        ];
         // Set template
         $this->view()->setTemplate(false)->setLayout('layout-content');
         // Get info from url
         $module = $this->params('module');
-        $token = $this->params('token');
-        $uid = $this->params('uid');
+        $token  = $this->params('token');
+        $uid    = $this->params('uid');
         // Check module
         if (Pi::service('module')->isActive('contact')) {
             // Check config
@@ -41,20 +41,18 @@ class ContactController extends ActionController
 
 
                     // Load language
-                    Pi::service('i18n')->load(array('module/contact', 'default'));
+                    Pi::service('i18n')->load(['module/contact', 'default']);
 
                     // Check post
                     if ($this->request->isPost()) {
-                        $data = $this->request->getPost();
+                        $data             = $this->request->getPost();
                         $data['platform'] = 'mobile';
-                        $result = Pi::api('api', 'contact')->contact($data);
+                        $result           = Pi::api('api', 'contact')->contact($data);
                     } else {
                         $result['message'] = __('Nothing send');
-                        $result['submit'] = 0;
-                        $result['status'] = 0;
+                        $result['submit']  = 0;
+                        $result['status']  = 0;
                     }
-
-
 
 
                     return $result;

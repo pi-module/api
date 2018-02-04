@@ -20,16 +20,16 @@ class OrderController extends ActionController
     public function orderListAction()
     {
         // Set result
-        $result = array(
-            'status' => 0,
+        $result = [
+            'status'  => 0,
             'message' => '',
-        );
+        ];
         // Set template
         $this->view()->setTemplate(false)->setLayout('layout-content');
         // Get info from url
         $module = $this->params('module');
-        $token = $this->params('token');
-        $uid = $this->params('uid');
+        $token  = $this->params('token');
+        $uid    = $this->params('uid');
         // Check module
         if (Pi::service('module')->isActive('order')) {
             // Check config
@@ -40,25 +40,25 @@ class OrderController extends ActionController
                 if ($check['status'] == 1) {
 
                     // Load language
-                    Pi::service('i18n')->load(array('module/order', 'default'));
+                    Pi::service('i18n')->load(['module/order', 'default']);
                     // Get list
                     $orders = Pi::api('order', 'order')->getOrderFromUser($uid, true);
-                    $list = array();
+                    $list   = [];
                     foreach ($orders as $order) {
-                        $products = Pi::api('order', 'order')->listProduct($order['id'], $order['module_name']);
-                        $productsList = array();
-                        $image = '';
+                        $products     = Pi::api('order', 'order')->listProduct($order['id'], $order['module_name']);
+                        $productsList = [];
+                        $image        = '';
                         foreach ($products as $product) {
                             $productsList[] = $product['details']['title'];
-                            $image = $product['details']['thumbUrl'];
+                            $image          = $product['details']['thumbUrl'];
                         }
-                        $list[$order['id']] = $order;
-                        $list[$order['id']]['products'] = implode(' , ',$productsList);
-                        $list[$order['id']]['image'] = $image;
+                        $list[$order['id']]             = $order;
+                        $list[$order['id']]['products'] = implode(' , ', $productsList);
+                        $list[$order['id']]['image']    = $image;
                     }
                     $result['list'] = array_values($list);
 
-                    $result['status'] = 1;
+                    $result['status']  = 1;
                     $result['message'] = 'Its work !';
                     return $result;
                 } else {
@@ -75,17 +75,17 @@ class OrderController extends ActionController
     public function orderSingleAction()
     {
         // Set result
-        $result = array(
-            'status' => 0,
+        $result = [
+            'status'  => 0,
             'message' => '',
-        );
+        ];
         // Set template
         $this->view()->setTemplate(false)->setLayout('layout-content');
         // Get info from url
         $module = $this->params('module');
-        $token = $this->params('token');
-        $uid = $this->params('uid');
-        $id = $this->params('id');
+        $token  = $this->params('token');
+        $uid    = $this->params('uid');
+        $id     = $this->params('id');
         // Check module
         if (Pi::service('module')->isActive('order')) {
             // Check config
@@ -96,30 +96,29 @@ class OrderController extends ActionController
                 if ($check['status'] == 1) {
 
 
-
                     // Load language
-                    Pi::service('i18n')->load(array('module/order', 'default'));
+                    Pi::service('i18n')->load(['module/order', 'default']);
                     // Get list
-                    $order =  Pi::api('order', 'order')->getOrder($id);
+                    $order = Pi::api('order', 'order')->getOrder($id);
                     if ($order['uid'] == $uid) {
-                        $products = Pi::api('order', 'order')->listProduct($order['id'], $order['module_name']);
-                        $invoices = Pi::api('invoice', 'order')->getInvoiceFromOrder($order['id'], false);
-                        $productsList = array();
-                        $image = '';
+                        $products     = Pi::api('order', 'order')->listProduct($order['id'], $order['module_name']);
+                        $invoices     = Pi::api('invoice', 'order')->getInvoiceFromOrder($order['id'], false);
+                        $productsList = [];
+                        $image        = '';
                         foreach ($products as $product) {
                             $productsList[] = $product['details']['title'];
-                            $image = $product['details']['thumbUrl'];
+                            $image          = $product['details']['thumbUrl'];
                         }
-                        $order['products'] = implode(' , ',$productsList);
-                        $order['image'] = $image;
-                        $order['invoices_count'] = count($invoices);
+                        $order['products']            = implode(' , ', $productsList);
+                        $order['image']               = $image;
+                        $order['invoices_count']      = count($invoices);
                         $order['invoices_count_view'] = _number(count($invoices));
                         foreach ($invoices as $invoice) {
                             $order['invoices'][] = $invoice;
                         }
 
 
-                        $order = array($order);
+                        $order = [$order];
                         return $order;
                     }
 
@@ -139,16 +138,16 @@ class OrderController extends ActionController
     public function invoiceListAction()
     {
         // Set result
-        $result = array(
-            'status' => 0,
+        $result = [
+            'status'  => 0,
             'message' => '',
-        );
+        ];
         // Set template
         $this->view()->setTemplate(false)->setLayout('layout-content');
         // Get info from url
         $module = $this->params('module');
-        $token = $this->params('token');
-        $uid = $this->params('uid');
+        $token  = $this->params('token');
+        $uid    = $this->params('uid');
         // Check module
         if (Pi::service('module')->isActive('order')) {
             // Check config
@@ -160,30 +159,29 @@ class OrderController extends ActionController
 
 
                     // Load language
-                    Pi::service('i18n')->load(array('module/order', 'default'));
+                    Pi::service('i18n')->load(['module/order', 'default']);
                     // Get list
                     $invoiceList = Pi::api('invoice', 'order')->getInvoiceFromUser($uid, true);
-                    $list = array();
+                    $list        = [];
                     foreach ($invoiceList as $invoiceSingle) {
-                        $order = Pi::api('order', 'order')->getOrder($invoiceSingle['order']);
-                        $products = Pi::api('order', 'order')->listProduct($order['id'], $order['module_name']);
-                        $productsList = array();
-                        $image = '';
+                        $order        = Pi::api('order', 'order')->getOrder($invoiceSingle['order']);
+                        $products     = Pi::api('order', 'order')->listProduct($order['id'], $order['module_name']);
+                        $productsList = [];
+                        $image        = '';
                         foreach ($products as $product) {
                             $productsList[] = $product['details']['title'];
-                            $image = $product['details']['thumbUrl'];
+                            $image          = $product['details']['thumbUrl'];
                         }
 
                         //$list[$invoiceSingle['id']]['orderInfo'] = $order;
-                        $list[$invoiceSingle['id']] = $invoiceSingle;
-                        $list[$invoiceSingle['id']]['products'] = implode(' , ',$productsList);
-                        $list[$invoiceSingle['id']]['image'] = $image;
+                        $list[$invoiceSingle['id']]             = $invoiceSingle;
+                        $list[$invoiceSingle['id']]['products'] = implode(' , ', $productsList);
+                        $list[$invoiceSingle['id']]['image']    = $image;
                     }
                     $result['list'] = array_values($list);
 
 
-
-                    $result['status'] = 1;
+                    $result['status']  = 1;
                     $result['message'] = 'Its work !';
                     return $result;
                 } else {
@@ -200,17 +198,17 @@ class OrderController extends ActionController
     public function invoiceSingleAction()
     {
         // Set result
-        $result = array(
-            'status' => 0,
+        $result = [
+            'status'  => 0,
             'message' => '',
-        );
+        ];
         // Set template
         $this->view()->setTemplate(false)->setLayout('layout-content');
         // Get info from url
         $module = $this->params('module');
-        $token = $this->params('token');
-        $uid = $this->params('uid');
-        $id = $this->params('id');
+        $token  = $this->params('token');
+        $uid    = $this->params('uid');
+        $id     = $this->params('id');
         // Check module
         if (Pi::service('module')->isActive('order')) {
             // Check config
@@ -221,29 +219,25 @@ class OrderController extends ActionController
                 if ($check['status'] == 1) {
 
 
-
-
                     // Load language
-                    Pi::service('i18n')->load(array('module/order', 'default'));
+                    Pi::service('i18n')->load(['module/order', 'default']);
                     // Get list
                     $invoice = Pi::api('invoice', 'order')->getInvoice($id);
                     if ($invoice['uid'] == $uid) {
-                        $order = Pi::api('order', 'order')->getOrder($invoice['order']);
-                        $products = Pi::api('order', 'order')->listProduct($order['id'], $order['module_name']);
-                        $productsList = array();
-                        $image = '';
+                        $order        = Pi::api('order', 'order')->getOrder($invoice['order']);
+                        $products     = Pi::api('order', 'order')->listProduct($order['id'], $order['module_name']);
+                        $productsList = [];
+                        $image        = '';
                         foreach ($products as $product) {
                             $productsList[] = $product['details']['title'];
-                            $image = $product['details']['thumbUrl'];
+                            $image          = $product['details']['thumbUrl'];
                         }
-                        $invoice['products'] = implode(' , ',$productsList);
-                        $invoice['image'] = $image;
+                        $invoice['products']  = implode(' , ', $productsList);
+                        $invoice['image']     = $image;
                         $invoice['orderInfo'] = $order;
-                        $invoice = array($invoice);
+                        $invoice              = [$invoice];
                         return $invoice;
                     }
-
-
 
 
                     return $result;
@@ -261,18 +255,18 @@ class OrderController extends ActionController
     public function historyAction()
     {
         // Set result
-        $result = array(
-            'status' => 0,
+        $result = [
+            'status'  => 0,
             'message' => '',
-        );
+        ];
         // Set template
         $this->view()->setTemplate(false)->setLayout('layout-content');
         // Get info from url
         $module = $this->params('module');
-        $token = $this->params('token');
-        $uid = $this->params('uid');
-        $page = $this->params('page', 1);
-        $limit = $this->params('limit', 25);
+        $token  = $this->params('token');
+        $uid    = $this->params('uid');
+        $page   = $this->params('page', 1);
+        $limit  = $this->params('limit', 25);
         // Check module
         if (Pi::service('module')->isActive('order')) {
             // Check config
@@ -283,26 +277,22 @@ class OrderController extends ActionController
                 if ($check['status'] == 1) {
 
                     // Load language
-                    Pi::service('i18n')->load(array('module/order', 'default'));
-                    Pi::service('i18n')->load(array('module/preorder', 'default'));
-
-
-
-
+                    Pi::service('i18n')->load(['module/order', 'default']);
+                    Pi::service('i18n')->load(['module/preorder', 'default']);
 
 
                     // Get info
-                    $list = array();
-                    $order = array('time_create DESC', 'id DESC');
+                    $list   = [];
+                    $order  = ['time_create DESC', 'id DESC'];
                     $offset = (int)($page - 1) * $limit;
-                    $where = array('uid' => $uid);
+                    $where  = ['uid' => $uid];
                     // Select
                     $select = Pi::model('history', 'order')->select()->where($where)->order($order)->offset($offset)->limit($limit);
                     $rowset = Pi::model('history', 'order')->selectWith($select);
                     // Make list
                     foreach ($rowset as $row) {
-                        $history = $row->toArray();
-                        $history['amount_view'] = Pi::api('api', 'order')->viewPrice($row->amount);
+                        $history                    = $row->toArray();
+                        $history['amount_view']     = Pi::api('api', 'order')->viewPrice($row->amount);
                         $history['amount_old_view'] = Pi::api('api', 'order')->viewPrice($row->amount_old);
                         $history['amount_new_view'] = Pi::api('api', 'order')->viewPrice($row->amount_new);
 
@@ -332,8 +322,6 @@ class OrderController extends ActionController
                     $result['history'] = $list;
 
 
-
-
                     return $result;
                 } else {
                     return $check;
@@ -350,16 +338,16 @@ class OrderController extends ActionController
     public function preOrderListAction()
     {
         // Set result
-        $result = array(
-            'status' => 0,
+        $result = [
+            'status'  => 0,
             'message' => '',
-        );
+        ];
         // Set template
         $this->view()->setTemplate(false)->setLayout('layout-content');
         // Get info from url
         $module = $this->params('module');
-        $token = $this->params('token');
-        $uid = $this->params('uid');
+        $token  = $this->params('token');
+        $uid    = $this->params('uid');
         // Check module
         if (Pi::service('module')->isActive('order') && Pi::service('module')->isActive('preorder')) {
             // Check config
@@ -370,21 +358,21 @@ class OrderController extends ActionController
                 if ($check['status'] == 1) {
 
                     // Load language
-                    Pi::service('i18n')->load(array('module/order', 'default'));
-                    Pi::service('i18n')->load(array('module/preorder', 'default'));
+                    Pi::service('i18n')->load(['module/order', 'default']);
+                    Pi::service('i18n')->load(['module/preorder', 'default']);
 
-                    $result['list'] = array();
-                    $where = array('uid' => $uid, 'status' => array(1,2,3,7));
-                    $order = array('time_create DESC', 'id DESC');
-                    $select = Pi::model('order', 'preorder')->select()->where($where)->order($order);
-                    $rowset = Pi::model('order', 'preorder')->selectWith($select);
+                    $result['list'] = [];
+                    $where          = ['uid' => $uid, 'status' => [1, 2, 3, 7]];
+                    $order          = ['time_create DESC', 'id DESC'];
+                    $select         = Pi::model('order', 'preorder')->select()->where($where)->order($order);
+                    $rowset         = Pi::model('order', 'preorder')->selectWith($select);
                     // Make list
                     foreach ($rowset as $row) {
                         $result['list'][] = Pi::api('order', 'preorder')->canonizeOrder($row);
                     }
 
 
-                    $result['status'] = 1;
+                    $result['status']  = 1;
                     $result['message'] = 'Its work !';
                     return $result;
                 } else {
@@ -401,17 +389,17 @@ class OrderController extends ActionController
     public function preOrderSingleAction()
     {
         // Set result
-        $result = array(
-            'status' => 0,
+        $result = [
+            'status'  => 0,
             'message' => '',
-        );
+        ];
         // Set template
         $this->view()->setTemplate(false)->setLayout('layout-content');
         // Get info from url
         $module = $this->params('module');
-        $token = $this->params('token');
-        $uid = $this->params('uid');
-        $id = $this->params('id');
+        $token  = $this->params('token');
+        $uid    = $this->params('uid');
+        $id     = $this->params('id');
         // Check module
         if (Pi::service('module')->isActive('order') && Pi::service('module')->isActive('preorder')) {
             // Check config
@@ -422,11 +410,9 @@ class OrderController extends ActionController
                 if ($check['status'] == 1) {
 
 
-
-
                     // Load language
-                    Pi::service('i18n')->load(array('module/order', 'default'));
-                    Pi::service('i18n')->load(array('module/preorder', 'default'));
+                    Pi::service('i18n')->load(['module/order', 'default']);
+                    Pi::service('i18n')->load(['module/preorder', 'default']);
 
                     // Get list
                     $preOrder = Pi::api('order', 'preorder')->getOrder($id);
@@ -434,17 +420,15 @@ class OrderController extends ActionController
 
                         $i = 1;
                         foreach ($preOrder['basket'] as $basket) {
-                            $preOrder['url_' . $i] = $basket['url'];
+                            $preOrder['url_' . $i]   = $basket['url'];
                             $preOrder['title_' . $i] = $basket['title'];
                             $preOrder['price_' . $i] = Pi::api('api', 'order')->viewPrice($basket['price']);
                             $i++;
                         }
 
-                        $preOrder = array($preOrder);
+                        $preOrder = [$preOrder];
                         return $preOrder;
                     }
-
-
 
 
                     return $result;
@@ -462,17 +446,17 @@ class OrderController extends ActionController
     public function plansAction()
     {
         // Set result
-        $result = array(
-            'status' => 0,
+        $result = [
+            'status'  => 0,
             'message' => '',
-        );
+        ];
         // Set template
         $this->view()->setTemplate(false)->setLayout('layout-content');
         // Get info from url
         $module = $this->params('module');
-        $token = $this->params('token');
-        $uid = $this->params('uid');
-        $price = $this->params('price');
+        $token  = $this->params('token');
+        $uid    = $this->params('uid');
+        $price  = $this->params('price');
         // Check module
         if (Pi::service('module')->isActive('order') && Pi::service('module')->isActive('preorder')) {
             // Check config
@@ -483,14 +467,12 @@ class OrderController extends ActionController
                 if ($check['status'] == 1) {
 
 
-
-
                     // Load language
-                    Pi::service('i18n')->load(array('module/order', 'default'));
-                    Pi::service('i18n')->load(array('module/preorder', 'default'));
+                    Pi::service('i18n')->load(['module/order', 'default']);
+                    Pi::service('i18n')->load(['module/preorder', 'default']);
 
                     // Set user
-                    $user = Pi::api('user', 'order')->getUserInformation($uid);
+                    $user        = Pi::api('user', 'order')->getUserInformation($uid);
                     $user['uid'] = $user['id'];
                     unset($user['id']);
 
@@ -499,20 +481,20 @@ class OrderController extends ActionController
 
                     foreach ($installments as $installment) {
                         if ($installment['id'] > 0) {
-                            $result['plans'][] = array(
-                                'info' => sprintf('%s - پیش پرداخت %s - مبلغ هر قسط %s',
+                            $result['plans'][] = [
+                                'info'  => sprintf('%s - پیش پرداخت %s - مبلغ هر قسط %s',
                                     $installment['title'],
                                     Pi::api('api', 'order')->viewPrice($installment['invoices'][0]['price']),
                                     Pi::api('api', 'order')->viewPrice($installment['invoices'][1]['price'])),
                                 'title' => $installment['title'],
-                                'id' => $installment['id']
-                            );
+                                'id'    => $installment['id'],
+                            ];
                         } else {
-                            $result['plans'][] = array(
-                                'info' => $installment['title'],
+                            $result['plans'][] = [
+                                'info'  => $installment['title'],
                                 'title' => $installment['title'],
-                                'id' => $installment['id']
-                            );
+                                'id'    => $installment['id'],
+                            ];
 
                         }
                     }
@@ -532,21 +514,21 @@ class OrderController extends ActionController
     public function addAction()
     {
         // Set result
-        $result = array(
-            'status' => 0,
+        $result = [
+            'status'  => 0,
             'message' => '',
-        );
+        ];
         // Set template
         $this->view()->setTemplate(false)->setLayout('layout-content');
         // Get info from url
         $module = $this->params('module');
-        $token = $this->params('token');
+        $token  = $this->params('token');
 
-        $uid = $this->params('uid');
+        $uid   = $this->params('uid');
         $price = $this->params('price');
-        $url = $this->params('url');
+        $url   = $this->params('url');
         $title = $this->params('title');
-        $plan = $this->params('plan');
+        $plan  = $this->params('plan');
 
         // Check module
         if (Pi::service('module')->isActive('order') && Pi::service('module')->isActive('preorder')) {
@@ -565,16 +547,16 @@ class OrderController extends ActionController
                     ) {
 
                         // Load language
-                        Pi::service('i18n')->load(array('module/order', 'default'));
-                        Pi::service('i18n')->load(array('module/preorder', 'default'));
+                        Pi::service('i18n')->load(['module/order', 'default']);
+                        Pi::service('i18n')->load(['module/preorder', 'default']);
 
                         // Set user
-                        $user = Pi::api('user', 'order')->getUserInformation($uid);
+                        $user        = Pi::api('user', 'order')->getUserInformation($uid);
                         $user['uid'] = $user['id'];
                         unset($user['id']);
 
                         // Set order values
-                        $values = array(
+                        $values = [
                             'uid'         => $user['uid'],
                             'plan'        => intval($plan),
                             'time_create' => time(),
@@ -593,7 +575,7 @@ class OrderController extends ActionController
                             'city'        => $user['city'],
                             'zip_code'    => $user['zip_code'],
                             'company'     => $user['company'],
-                        );
+                        ];
 
                         // Save order
                         $orderRow = Pi::model('order', 'preorder')->createRow();
@@ -601,14 +583,14 @@ class OrderController extends ActionController
                         $orderRow->save();
 
                         // Save basket
-                        $basketValues = array(
-                            'order'  => $orderRow->id,
-                            'uid'    => $orderRow->uid,
-                            'title'  => $title,
-                            'url'    => $url,
-                            'price'  => $price * 10,
-                        );
-                        $basketRow = Pi::model('basket', 'preorder')->createRow();
+                        $basketValues = [
+                            'order' => $orderRow->id,
+                            'uid'   => $orderRow->uid,
+                            'title' => $title,
+                            'url'   => $url,
+                            'price' => $price * 10,
+                        ];
+                        $basketRow    = Pi::model('basket', 'preorder')->createRow();
                         $basketRow->assign($basketValues);
                         $basketRow->save();
 
@@ -619,12 +601,11 @@ class OrderController extends ActionController
                         Pi::api('notification', 'preorder')->addOrder($orderSave);
 
                         // Set result
-                        $result['status'] = 1;
+                        $result['status']  = 1;
                         $result['message'] = 'Its work !';
                     } else {
                         $result['message'] = __('Information not rue');
                     }
-
 
 
                     return $result;

@@ -20,15 +20,15 @@ class GuideController extends ActionController
     public function itemListAction()
     {
         // Set result
-        $result = array(
-            'status' => 0,
+        $result = [
+            'status'  => 0,
             'message' => '',
-        );
+        ];
         // Set template
         $this->view()->setTemplate(false)->setLayout('layout-content');
         // Get info from url
         $module = $this->params('module');
-        $token = $this->params('token');
+        $token  = $this->params('token');
         // Check module
         if (Pi::service('module')->isActive('guide')) {
             // Check config
@@ -38,18 +38,18 @@ class GuideController extends ActionController
                 $check = Pi::api('token', 'tools')->check($token, $module, 'api');
                 if ($check['status'] == 1) {
 
-                    $options = array();
-                    $options['page'] = $this->params('page', 1);
-                    $options['title'] = $this->params('title');
-                    $options['category'] = $this->params('category');
-                    $options['location'] = $this->params('location');
-                    $options['tag'] = $this->params('tag');
-                    $options['favourite'] = $this->params('favourite');
+                    $options                = [];
+                    $options['page']        = $this->params('page', 1);
+                    $options['title']       = $this->params('title');
+                    $options['category']    = $this->params('category');
+                    $options['location']    = $this->params('location');
+                    $options['tag']         = $this->params('tag');
+                    $options['favourite']   = $this->params('favourite');
                     $options['recommended'] = $this->params('recommended');
-                    $options['discount'] = $this->params('discount');
-                    $options['people'] = $this->params('people');
-                    $options['limit'] = $this->params('limit');
-                    $options['order'] = $this->params('order');
+                    $options['discount']    = $this->params('discount');
+                    $options['people']      = $this->params('people');
+                    $options['limit']       = $this->params('limit');
+                    $options['order']       = $this->params('order');
 
                     $result = Pi::api('api', 'guide')->itemList($options);
 
@@ -66,15 +66,15 @@ class GuideController extends ActionController
     public function itemSingleAction()
     {
         // Set result
-        $result = array(
-            'status' => 0,
+        $result = [
+            'status'  => 0,
             'message' => '',
-        );
+        ];
         // Set template
         $this->view()->setTemplate(false)->setLayout('layout-content');
         // Get info from url
         $module = $this->params('module');
-        $token = $this->params('token');
+        $token  = $this->params('token');
         // Check module
         if (Pi::service('module')->isActive('guide')) {
             // Check config
@@ -84,7 +84,7 @@ class GuideController extends ActionController
                 $check = Pi::api('token', 'tools')->check($token, $module, 'api');
                 if ($check['status'] == 1) {
 
-                    $id = $this->params('id');
+                    $id     = $this->params('id');
                     $result = Pi::api('api', 'guide')->itemSingle($id);
 
                     return $result;
@@ -100,15 +100,15 @@ class GuideController extends ActionController
     public function mapAction()
     {
         // Set result
-        $result = array(
-            'status' => 0,
+        $result = [
+            'status'  => 0,
             'message' => '',
-        );
+        ];
         // Set template
         $this->view()->setTemplate(false)->setLayout('layout-content');
         // Get info from url
         $module = $this->params('module');
-        $token = $this->params('token');
+        $token  = $this->params('token');
         // Check module
         if (Pi::service('module')->isActive('guide')) {
             // Check config
@@ -118,11 +118,11 @@ class GuideController extends ActionController
                 $check = Pi::api('token', 'tools')->check($token, $module, 'api');
                 if ($check['status'] == 1) {
 
-                    $latitude = $this->params('latitude');
+                    $latitude  = $this->params('latitude');
                     $longitude = $this->params('longitude');
 
-                    $result['list'] = Pi::api('api', 'guide')->itemMap($latitude, $longitude);
-                    $result['status'] = 1;
+                    $result['list']    = Pi::api('api', 'guide')->itemMap($latitude, $longitude);
+                    $result['status']  = 1;
                     $result['message'] = 'Its work !';
 
                     return $result;

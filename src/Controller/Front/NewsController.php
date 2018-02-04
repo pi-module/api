@@ -20,15 +20,15 @@ class NewsController extends ActionController
     public function listAction()
     {
         // Set result
-        $result = array(
-            'status' => 0,
+        $result = [
+            'status'  => 0,
             'message' => '',
-        );
+        ];
         // Set template
         $this->view()->setTemplate(false)->setLayout('layout-content');
         // Get info from url
         $module = $this->params('module');
-        $token = $this->params('token');
+        $token  = $this->params('token');
         // Check module
         if (Pi::service('module')->isActive('news')) {
             // Check config
@@ -39,18 +39,14 @@ class NewsController extends ActionController
                 if ($check['status'] == 1) {
 
 
-
-
-
-                    $options = array();
-                    $options['page'] = $this->params('page', 1);
-                    $options['title'] = $this->params('title');
-                    $options['topic'] = $this->params('topic');
-                    $options['tag'] = $this->params('tag');
-                    $options['limit'] = $this->params('limit');
+                    $options            = [];
+                    $options['page']    = $this->params('page', 1);
+                    $options['title']   = $this->params('title');
+                    $options['topic']   = $this->params('topic');
+                    $options['tag']     = $this->params('tag');
+                    $options['limit']   = $this->params('limit');
                     $options['getUser'] = true;
-                    $result = Pi::api('api', 'news')->jsonList($options);
-
+                    $result             = Pi::api('api', 'news')->jsonList($options);
 
 
                     return $result;
@@ -68,15 +64,15 @@ class NewsController extends ActionController
     public function singleAction()
     {
         // Set result
-        $result = array(
-            'status' => 0,
+        $result = [
+            'status'  => 0,
             'message' => '',
-        );
+        ];
         // Set template
         $this->view()->setTemplate(false)->setLayout('layout-content');
         // Get info from url
         $module = $this->params('module');
-        $token = $this->params('token');
+        $token  = $this->params('token');
         // Check module
         if (Pi::service('module')->isActive('news')) {
             // Check config
@@ -86,7 +82,7 @@ class NewsController extends ActionController
                 $check = Pi::api('token', 'tools')->check($token, $module, 'api');
                 if ($check['status'] == 1) {
 
-                    $id = $this->params('id');
+                    $id     = $this->params('id');
                     $result = Pi::api('api', 'news')->jsonSingle($id, true);
 
                     return $result;
@@ -104,15 +100,15 @@ class NewsController extends ActionController
     public function submitAction()
     {
         // Set result
-        $result = array(
-            'status' => 0,
+        $result = [
+            'status'  => 0,
             'message' => '',
-        );
+        ];
         // Set template
         $this->view()->setTemplate(false)->setLayout('layout-content');
         // Get info from url
         $module = $this->params('module');
-        $token = $this->params('token');
+        $token  = $this->params('token');
         // Check module
         if (Pi::service('module')->isActive('news')) {
             // Check config
@@ -124,7 +120,7 @@ class NewsController extends ActionController
 
 
                     if ($this->request->isPost()) {
-                        $data = $this->request->getPost();
+                        $data   = $this->request->getPost();
                         $result = Pi::api('api', 'news')->jsonSubmit($data);
                         if ($result['status'] == 1) {
                             $result['message'] = __('Story save on DB, waiting to admin review and publish it');
@@ -133,7 +129,7 @@ class NewsController extends ActionController
                         }
                     } else {
                         $result['message'] = __('Nothing send');
-                        $result['status'] = 0;
+                        $result['status']  = 0;
                     }
 
 
