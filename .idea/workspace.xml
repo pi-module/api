@@ -15,19 +15,12 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="UserController.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Controller/Front/UserController.php">
+      <file leaf-file-name="VideoController.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Controller/Front/VideoController.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="18">
-              <caret line="290" column="102" lean-forward="false" selection-start-line="290" selection-start-column="102" selection-end-line="290" selection-end-column="102" />
-              <folding>
-                <element signature="e#304#311#0#PHP" expanded="true" />
-                <element signature="e#502#4992#0#PHP" expanded="false" />
-                <element signature="e#8186#9796#0#PHP" expanded="false" />
-                <element signature="e#14649#19386#0#PHP" expanded="false" />
-                <element signature="e#19392#23423#0#PHP" expanded="false" />
-                <element signature="e#23429#29258#0#PHP" expanded="false" />
-              </folding>
+              <caret line="36" column="30" lean-forward="false" selection-start-line="36" selection-start-column="30" selection-end-line="36" selection-end-column="30" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -92,8 +85,8 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="width" value="1274" />
-    <option name="height" value="994" />
+    <option name="width" value="1272" />
+    <option name="height" value="998" />
   </component>
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="1" id="Add" />
@@ -113,8 +106,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -237,6 +228,8 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -410,7 +403,10 @@
       <workItem from="1517726418371" duration="671000" />
       <workItem from="1517737342651" duration="1720000" />
       <workItem from="1518067117652" duration="97000" />
-      <workItem from="1518679208424" duration="1000" />
+      <workItem from="1518679208424" duration="53000" />
+      <workItem from="1518679442720" duration="115000" />
+      <workItem from="1518704455869" duration="97000" />
+      <workItem from="1520856738202" duration="1000" />
     </task>
     <task id="LOCAL-00001" summary="Start work on api module">
       <created>1494412562343</created>
@@ -629,17 +625,24 @@
       <option name="project" value="LOCAL" />
       <updated>1517739935797</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="Work on api">
+      <created>1518679216192</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1518679216192</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="31162000" />
+    <option name="totallyTimeSpent" value="31427000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1274" height="994" extended-state="4" />
+    <frame x="0" y="0" width="1272" height="998" extended-state="4" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.34068626" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.35761046" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1014,13 +1017,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/Front/VideoController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="19" column="20" lean-forward="true" selection-start-line="19" selection-start-column="20" selection-end-line="19" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/config/module.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="198">
@@ -1037,8 +1033,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/Front/UserController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="18">
-          <caret line="290" column="102" lean-forward="false" selection-start-line="290" selection-start-column="102" selection-end-line="290" selection-end-column="102" />
+        <state relative-caret-position="324">
+          <caret line="307" column="34" lean-forward="false" selection-start-line="307" selection-start-column="34" selection-end-line="307" selection-end-column="34" />
           <folding>
             <element signature="e#304#311#0#PHP" expanded="true" />
             <element signature="e#502#4992#0#PHP" expanded="false" />
@@ -1047,6 +1043,14 @@
             <element signature="e#19392#23423#0#PHP" expanded="false" />
             <element signature="e#23429#29258#0#PHP" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/Front/VideoController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="18">
+          <caret line="36" column="30" lean-forward="false" selection-start-line="36" selection-start-column="30" selection-end-line="36" selection-end-column="30" />
+          <folding />
         </state>
       </provider>
     </entry>
