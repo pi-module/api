@@ -87,8 +87,7 @@ class VideoController extends ActionController
                     $params           = [];
                     $params['id']     = $this->params('id');
                     $params['slug']   = $this->params('slug');
-                    $result           = Pi::api('api', 'video')->videoSingle($params);
-                    $result['status'] = 1;
+                    $result  = Pi::api('api', 'video')->videoSingle($params);
 
                     return $result;
                 } else {
