@@ -38,6 +38,13 @@ class NewsController extends ActionController
                 $check = Pi::api('token', 'tools')->check($token, $module, 'api');
                 if ($check['status'] == 1) {
 
+                    // Save statistics
+                    if (Pi::service('module')->isActive('statistics')) {
+                        Pi::api('log', 'statistics')->save('news', 'list', 0, [
+                            'source'  => $this->params('platform'),
+                            'section' => 'api',
+                        ]);
+                    }
 
                     $options            = [];
                     $options['page']    = $this->params('page', 1);
@@ -81,6 +88,14 @@ class NewsController extends ActionController
                 // Check token
                 $check = Pi::api('token', 'tools')->check($token, $module, 'api');
                 if ($check['status'] == 1) {
+
+                    // Save statistics
+                    if (Pi::service('module')->isActive('statistics')) {
+                        Pi::api('log', 'statistics')->save('news', 'single', $this->params('id'), [
+                            'source'  => $this->params('platform'),
+                            'section' => 'api',
+                        ]);
+                    }
 
                     $id     = $this->params('id');
                     $result = Pi::api('api', 'news')->jsonSingle($id, true);

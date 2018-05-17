@@ -39,6 +39,14 @@ class ContactController extends ActionController
                 $check = Pi::api('token', 'tools')->check($token, $module, 'api');
                 if ($check['status'] == 1) {
 
+                    // Save statistics
+                    if (Pi::service('module')->isActive('statistics')) {
+                        Pi::api('log', 'statistics')->save('contact', 'send', 0, [
+                            'source'  => $this->params('platform'),
+                            'section' => 'api',
+                            'action' => 'send'
+                        ]);
+                    }
 
                     // Load language
                     Pi::service('i18n')->load(['module/contact', 'default']);

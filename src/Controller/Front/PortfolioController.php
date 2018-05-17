@@ -38,6 +38,14 @@ class PortfolioController extends ActionController
                 $check = Pi::api('token', 'tools')->check($token, $module, 'api');
                 if ($check['status'] == 1) {
 
+                    // Save statistics
+                    if (Pi::service('module')->isActive('statistics')) {
+                        Pi::api('log', 'statistics')->save('portfolio', 'list', 0, [
+                            'source'  => $this->params('platform'),
+                            'section' => 'api',
+                        ]);
+                    }
+
                     $page        = $this->params('page', 1);
                     $limit       = $this->params('limit', 15);
                     $projectList = [];
@@ -90,6 +98,14 @@ class PortfolioController extends ActionController
                 // Check token
                 $check = Pi::api('token', 'tools')->check($token, $module, 'api');
                 if ($check['status'] == 1) {
+
+                    // Save statistics
+                    if (Pi::service('module')->isActive('statistics')) {
+                        Pi::api('log', 'statistics')->save('portfolio', 'single', $this->params('id'), [
+                            'source'  => $this->params('platform'),
+                            'section' => 'api',
+                        ]);
+                    }
 
                     $id = $this->params('id');
 

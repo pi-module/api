@@ -38,6 +38,14 @@ class GuideController extends ActionController
                 $check = Pi::api('token', 'tools')->check($token, $module, 'api');
                 if ($check['status'] == 1) {
 
+                    // Save statistics
+                    if (Pi::service('module')->isActive('statistics')) {
+                        Pi::api('log', 'statistics')->save('guide', 'list', 0, [
+                            'source'  => $this->params('platform'),
+                            'section' => 'api',
+                        ]);
+                    }
+
                     $options                = [];
                     $options['page']        = $this->params('page', 1);
                     $options['title']       = $this->params('title');
@@ -84,6 +92,14 @@ class GuideController extends ActionController
                 $check = Pi::api('token', 'tools')->check($token, $module, 'api');
                 if ($check['status'] == 1) {
 
+                    // Save statistics
+                    if (Pi::service('module')->isActive('statistics')) {
+                        Pi::api('log', 'statistics')->save('guide', 'single', $this->params('id'), [
+                            'source'  => $this->params('platform'),
+                            'section' => 'api',
+                        ]);
+                    }
+
                     $id     = $this->params('id');
                     $result = Pi::api('api', 'guide')->itemSingle($id);
 
@@ -117,6 +133,14 @@ class GuideController extends ActionController
                 // Check token
                 $check = Pi::api('token', 'tools')->check($token, $module, 'api');
                 if ($check['status'] == 1) {
+
+                    // Save statistics
+                    if (Pi::service('module')->isActive('statistics')) {
+                        Pi::api('log', 'statistics')->save('guide', 'map', 0, [
+                            'source'  => $this->params('platform'),
+                            'section' => 'api',
+                        ]);
+                    }
 
                     $latitude  = $this->params('latitude');
                     $longitude = $this->params('longitude');

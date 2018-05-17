@@ -38,6 +38,14 @@ class VideoController extends ActionController
                 $check = Pi::api('token', 'tools')->check($token, $module, 'api');
                 if ($check['status'] == 1) {
 
+                    // Save statistics
+                    if (Pi::service('module')->isActive('statistics')) {
+                        Pi::api('log', 'statistics')->save('video', 'list', 0, [
+                            'source'  => $this->params('platform'),
+                            'section' => 'api',
+                        ]);
+                    }
+
                     $params                = [];
                     $params['page']        = $this->params('page', 1);
                     $params['title']       = $this->params('title');
@@ -84,10 +92,18 @@ class VideoController extends ActionController
                 $check = Pi::api('token', 'tools')->check($token, $module, 'api');
                 if ($check['status'] == 1) {
 
-                    $params           = [];
-                    $params['id']     = $this->params('id');
-                    $params['slug']   = $this->params('slug');
-                    $result  = Pi::api('api', 'video')->videoSingle($params);
+                    // Save statistics
+                    if (Pi::service('module')->isActive('statistics')) {
+                        Pi::api('log', 'statistics')->save('video', 'single', $this->params('id'), [
+                            'source'  => $this->params('platform'),
+                            'section' => 'api',
+                        ]);
+                    }
+
+                    $params         = [];
+                    $params['id']   = $this->params('id');
+                    $params['slug'] = $this->params('slug');
+                    $result         = Pi::api('api', 'video')->videoSingle($params);
 
                     return $result;
                 } else {
@@ -121,6 +137,15 @@ class VideoController extends ActionController
                 // Check token
                 $check = Pi::api('token', 'tools')->check($token, $module, 'api');
                 if ($check['status'] == 1) {
+
+                    // Save statistics
+                    if (Pi::service('module')->isActive('statistics')) {
+                        Pi::api('log', 'statistics')->save('video', 'category', 0, [
+                            'source'  => $this->params('platform'),
+                            'section' => 'api',
+                        ]);
+                    }
+
                     $params           = [];
                     $result           = Pi::api('api', 'video')->categoryList($params);
                     $result['status'] = 1;
