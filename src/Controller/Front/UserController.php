@@ -612,12 +612,9 @@ class UserController extends ActionController
         ];
 
         // Set field
-        $field = 'identity';
-        if (Pi::service('module')->isActive('user')) {
-            $config = Pi::service('registry')->config->read('user');
-            $field  = $config['login_field'];
-            $field  = array_shift($field);
-        }
+        $config = Pi::service('registry')->config->read('api');
+        $field  = $config['login_field'];
+        $field  = array_shift($field);
 
         // try login
         $result = Pi::service('authentication')->authenticate(

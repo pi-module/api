@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="737c4100-2f36-4ccb-98d8-7003c7fd382b" name="Default" comment="Work on api">
+    <list default="true" id="737c4100-2f36-4ccb-98d8-7003c7fd382b" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controller/Front/ContactController.php" afterPath="$PROJECT_DIR$/src/Controller/Front/ContactController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controller/Front/GuideController.php" afterPath="$PROJECT_DIR$/src/Controller/Front/GuideController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controller/Front/NewsController.php" afterPath="$PROJECT_DIR$/src/Controller/Front/NewsController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controller/Front/PageController.php" afterPath="$PROJECT_DIR$/src/Controller/Front/PageController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controller/Front/PortfolioController.php" afterPath="$PROJECT_DIR$/src/Controller/Front/PortfolioController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controller/Front/VideoController.php" afterPath="$PROJECT_DIR$/src/Controller/Front/VideoController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/config.php" afterPath="$PROJECT_DIR$/config/config.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/module.php" afterPath="$PROJECT_DIR$/config/module.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controller/Front/UserController.php" afterPath="$PROJECT_DIR$/src/Controller/Front/UserController.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -20,12 +17,29 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="GuideController.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="GuideController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Controller/Front/GuideController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="427">
+            <state relative-caret-position="2358">
               <caret line="138" column="50" lean-forward="false" selection-start-line="138" selection-start-column="40" selection-end-line="138" selection-end-column="50" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UserController.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Controller/Front/UserController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="232">
+              <caret line="617" column="0" lean-forward="false" selection-start-line="617" selection-start-column="0" selection-end-line="617" selection-end-column="0" />
+              <folding>
+                <element signature="e#304#311#0#PHP" expanded="true" />
+                <element signature="e#502#4992#0#PHP" expanded="false" />
+                <element signature="e#8186#9796#0#PHP" expanded="false" />
+                <element signature="e#9802#14643#0#PHP" expanded="false" />
+                <element signature="e#14649#19386#0#PHP" expanded="false" />
+                <element signature="e#19392#23423#0#PHP" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -111,6 +125,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -166,7 +181,6 @@
         </subPane>
       </pane>
       <pane id="Scratches" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -346,7 +360,9 @@
       <workItem from="1520856738202" duration="1000" />
       <workItem from="1524838973178" duration="787000" />
       <workItem from="1524842727684" duration="171000" />
-      <workItem from="1526546946630" duration="1031000" />
+      <workItem from="1526546946630" duration="1662000" />
+      <workItem from="1528958334876" duration="68000" />
+      <workItem from="1528958581481" duration="1000" />
     </task>
     <task id="LOCAL-00001" summary="Start work on api module">
       <created>1494412562343</created>
@@ -579,17 +595,24 @@
       <option name="project" value="LOCAL" />
       <updated>1524839544091</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="Add support statistics for apis">
+      <created>1526547991118</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1526547991118</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="33416000" />
+    <option name="totallyTimeSpent" value="34116000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="994" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25444266" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.10823909" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -620,7 +643,8 @@
     <MESSAGE value="Work on module" />
     <MESSAGE value="fix user login" />
     <MESSAGE value="Work on api" />
-    <option name="LAST_COMMIT_MESSAGE" value="Work on api" />
+    <MESSAGE value="Add support statistics for apis" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add support statistics for apis" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -901,21 +925,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/Front/UserController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="307" column="34" lean-forward="false" selection-start-line="307" selection-start-column="34" selection-end-line="307" selection-end-column="34" />
-          <folding>
-            <element signature="e#304#311#0#PHP" expanded="true" />
-            <element signature="e#502#4992#0#PHP" expanded="false" />
-            <element signature="e#8186#9796#0#PHP" expanded="false" />
-            <element signature="e#14649#19386#0#PHP" expanded="false" />
-            <element signature="e#19392#23423#0#PHP" expanded="false" />
-            <element signature="e#23429#29258#0#PHP" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/Front/EventController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="432">
@@ -1008,9 +1017,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/Front/GuideController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="427">
+        <state relative-caret-position="2358">
           <caret line="138" column="50" lean-forward="false" selection-start-line="138" selection-start-column="40" selection-end-line="138" selection-end-column="50" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/Front/UserController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="232">
+          <caret line="617" column="0" lean-forward="false" selection-start-line="617" selection-start-column="0" selection-end-line="617" selection-end-column="0" />
+          <folding>
+            <element signature="e#304#311#0#PHP" expanded="true" />
+            <element signature="e#502#4992#0#PHP" expanded="false" />
+            <element signature="e#8186#9796#0#PHP" expanded="false" />
+            <element signature="e#9802#14643#0#PHP" expanded="false" />
+            <element signature="e#14649#19386#0#PHP" expanded="false" />
+            <element signature="e#19392#23423#0#PHP" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>

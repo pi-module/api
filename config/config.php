@@ -137,6 +137,26 @@ return [
             'value'       => 0,
         ],
         // Setting
+        'login_field' => [
+            'title'       => _t('Login field'),
+            'description' => _t('Identity field(s) for authentication.'),
+            'edit'        => [
+                'type'       => 'select',
+                'attributes' => [
+                    'multiple' => true,
+                ],
+                'options'    => [
+                    'value_options' => [
+                        'identity' => _t('Username'),
+                        'email'    => _t('Email'),
+                    ],
+                ],
+            ],
+            'filter'      => 'array',
+            'value'       => ['identity'],
+            'category'    => 'login',
+        ],
+
         'telegram_api_key' => [
             'category'    => 'setting',
             'title'       => _a('Telegram api key'),
