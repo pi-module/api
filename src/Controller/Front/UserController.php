@@ -613,14 +613,12 @@ class UserController extends ActionController
 
         // Set field
         $config = Pi::service('registry')->config->read('api');
-        $field  = $config['login_field'];
-        $field  = array_shift($field);
 
         // try login
         $result = Pi::service('authentication')->authenticate(
             $identity,
             $credential,
-            $field
+            $config['login_field']
         );
         $result = $this->verifyResult($result);
 

@@ -142,9 +142,6 @@ return [
             'description' => _t('Identity field(s) for authentication.'),
             'edit'        => [
                 'type'       => 'select',
-                'attributes' => [
-                    'multiple' => true,
-                ],
                 'options'    => [
                     'value_options' => [
                         'identity' => _t('Username'),
@@ -152,9 +149,9 @@ return [
                     ],
                 ],
             ],
-            'filter'      => 'array',
-            'value'       => ['identity'],
-            'category'    => 'login',
+            'filter'      => 'string',
+            'value'       => 'identity',
+            'category'    => 'setting',
         ],
 
         'telegram_api_key' => [
