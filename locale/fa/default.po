@@ -1,0 +1,112 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Pi apis module\n"
+"POT-Creation-Date: 2017-07-26 15:59+0430\n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: Pi\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.0.3\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-Basepath: ../..\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: src/Controller/Admin/ListController.php:34
+msgid "Telegram"
+msgstr "تلگرام"
+
+#: src/Controller/Admin/ListController.php:45
+msgid "Contact"
+msgstr "تماس"
+
+#: src/Controller/Front/ContactController.php:52
+#: src/Controller/Front/NewsController.php:134
+msgid "Nothing send"
+msgstr "خطا، هیچ اطلاعاتی ارسال نشد !"
+
+#: src/Controller/Front/NewsController.php:129
+msgid "Story save on DB, waiting to admin review and publish it"
+msgstr ""
+"اطلاعات ارسالی در پایگاه داده ها ذخیره شد، بعد از بررسی مدیر سیستم منتشر می "
+"شود"
+
+#: src/Controller/Front/NewsController.php:131
+msgid "Error to save story"
+msgstr "خطا در ذخیره مطلب"
+
+#: src/Controller/Front/RegisterController.php:25
+#: src/Controller/Front/RegisterController.php:142
+msgid "Error on register"
+msgstr "خطا در ثبت نام"
+
+#: src/Controller/Front/RegisterController.php:89
+#: src/Controller/Front/RegisterController.php:218
+msgid "This mobile number is taken before by another user"
+msgstr "این شماره موبایل قبلا توسط یک کاربر دیگر در سیستم ثبت شده است"
+
+#: src/Controller/Front/RegisterController.php:99
+msgid "User account was not saved."
+msgstr "حساب کاربری شما ذخیره نشد"
+
+#: src/Controller/Front/RegisterController.php:113
+msgid "Your account create and activate. please login to system"
+msgstr "حساب کاربری شما ایجاد و فعال شد، می توانید به نرم افزار وارد شوید"
+
+#: src/Controller/Front/RegisterController.php:230
+msgid "Your account information update"
+msgstr "اطلاعات حساب کاربری شما با موفقیت ویرایش شد"
+
+#: src/Controller/Front/SupportController.php:155
+#: src/Controller/Front/SupportController.php:266
+msgid "error 1"
+msgstr "خطا !"
+
+#: src/Controller/Front/SupportController.php:159
+#: src/Controller/Front/SupportController.php:270
+msgid "error 2"
+msgstr "خطا !"
+
+#: src/Controller/Front/SupportController.php:263
+msgid "Your support ticket submit successfully, we will answer you very soon"
+msgstr ""
+"اطلاعات ارسالی شما با موفقیت در سیستم ذخیره شد، ما در اولین فرصت آن را بررسی "
+"میکنیم."
+
+#: src/Controller/Front/SupportController.php:274
+msgid "error 3"
+msgstr "خطا"
+
+#: src/Controller/Front/UserController.php:159
+msgid "You are login to system before"
+msgstr "شما قبلا در سیستم وارد شده اید"
+
+#: src/Controller/Front/UserController.php:174
+msgid "Post request not set"
+msgstr "درخواست ارسالی تنظیم نشده است"
+
+#: src/Controller/Front/UserController.php:230
+msgid "You logged out successfully."
+msgstr "از سیستم خاریج شدید"
+
+#: src/Controller/Front/UserController.php:413
+msgid "You have logged in successfully"
+msgstr "با موفقیت به سیستم وارد شدید"
+
+#: src/Controller/Front/UserController.php:425
+msgid "Bind error"
+msgstr "خطا"
+
+#: src/Controller/Front/UserController.php:429
+msgid "Authentication is not valid"
+msgstr "شماره موبایل یا کلمه عبور نادرست است"
+
+#: template/admin/list-index.phtml:5
+msgid ""
+"You need build token for API module, go to tools module and select token tab "
+"and generate new API, set module to API and Module section to (( External "
+"API ))"
+msgstr ""

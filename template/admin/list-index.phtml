@@ -5,15 +5,15 @@
             <?php _e('You need build token for API module, go to tools module and select token tab and generate new API, set module to API and Module section to (( External API ))'); ?>
         </div>
     <?php } else { ?>
-    <div class="clearfix">
-        <?php foreach ($links as $linkToken) { ?>
-        <?php foreach ($linkToken as $link) { ?>
-                <div class="form-group">
-                    <label><?php echo $this->escape($link['title']); ?></label>
-                    <input type="text" class="form-control" value="<?php echo $this->escape($link['url']); ?>">
-                </div>
-        <?php } ?>
-        <?php } ?>
-    </div>
+        <div class="clearfix">
+            <?php foreach ($links as $linkToken) { ?>
+                <?php foreach ($linkToken as $link) { ?>
+                    <div class="form-group">
+                        <label><?php echo $this->escape($link['title']); ?></label>
+                        <input type="text" class="form-control" value="<?php echo $this->escape($link['url']); ?>">
+                    </div>
+                <?php } ?>
+            <?php } ?>
+        </div>
     <?php } ?>
 </div>

@@ -1,10 +1,10 @@
 <?php
 /**
- * Pi Engine (http://pialog.org)
+ * Pi Engine (http://piengine.org)
  *
- * @link            http://code.pialog.org for the Pi Engine source repository
- * @copyright       Copyright (c) Pi Engine http://pialog.org
- * @license         http://pialog.org/license.txt BSD 3-Clause License
+ * @link            http://code.piengine.org for the Pi Engine source repository
+ * @copyright       Copyright (c) Pi Engine http://piengine.org
+ * @license         http://piengine.org/license.txt BSD 3-Clause License
  */
 
 namespace Module\Apis\Controller\Front;
@@ -21,8 +21,8 @@ class IndexController extends ActionController
     {
         // Set template
         $this->view()->setTemplate(false)->setLayout('layout-content');
-        return array(
-            'message' => 'It work !'
-        );
+        return [
+            'message' => 'It work !',
+        ];
     }
 }

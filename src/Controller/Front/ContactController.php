@@ -1,10 +1,10 @@
 <?php
 /**
- * Pi Engine (http://pialog.org)
+ * Pi Engine (http://piengine.org)
  *
- * @link            http://code.pialog.org for the Pi Engine source repository
- * @copyright       Copyright (c) Pi Engine http://pialog.org
- * @license         http://pialog.org/license.txt BSD 3-Clause License
+ * @link            http://code.piengine.org for the Pi Engine source repository
+ * @copyright       Copyright (c) Pi Engine http://piengine.org
+ * @license         http://piengine.org/license.txt BSD 3-Clause License
  */
 
 namespace Module\Apis\Controller\Front;
@@ -20,15 +20,16 @@ class ContactController extends ActionController
     public function sendAction()
     {
         // Set result
-        $result = array(
-            'status' => 0,
+        $result = [
+            'status'  => 0,
             'message' => '',
-        );
+        ];
         // Set template
         $this->view()->setTemplate(false)->setLayout('layout-content');
         // Get info from url
         $module = $this->params('module');
-        $token = $this->params('token');
+        $token  = $this->params('token');
+        $uid    = $this->params('uid');
         // Check module
         if (Pi::service('module')->isActive('contact')) {
             // Check config
@@ -38,11 +39,30 @@ class ContactController extends ActionController
                 $check = Pi::api('token', 'tools')->check($token, $module, 'api');
                 if ($check['status'] == 1) {
 
+                    // Save statistics
+                    if (Pi::service('module')->isActive('statistics')) {
+                        Pi::api('log', 'statistics')->save('contact', 'send', 0, [
+                            'source'  => $this->params('platform'),
+                            'section' => 'api',
+                            'action' => 'send'
+                        ]);
+                    }
+
+                    // Load language
+                    Pi::service('i18n')->load(['module/contact', 'default']);
+
+                    // Check post
+                    if ($this->request->isPost()) {
+                        $data             = $this->request->getPost();
+                        $data['platform'] = 'mobile';
+                        $result           = Pi::api('api', 'contact')->contact($data);
+                    } else {
+                        $result['message'] = __('Nothing send');
+                        $result['submit']  = 0;
+                        $result['status']  = 0;
+                    }
 
 
-
-                    $result['status'] = 1;
-                    $result['message'] = 'Its work !';
                     return $result;
                 } else {
                     return $check;
